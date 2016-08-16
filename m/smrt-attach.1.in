@@ -1,0 +1,53 @@
+.\" vim: tw=72 fdm=marker cms=.\\"\ %s
+.
+.\" FRONT MATTER {{{
+.Dd Aug 15, 2016
+.Os
+.Dt SMRT-ATTACH 1
+.
+.Sh NAME
+.Nm smrt\ attach
+.Nd Ssh into a refhost and earmark it for testing given products
+.\" FRONT MATTER }}}
+.
+.\" SYNOPSIS {{{
+.Sh SYNOPSIS
+.Nm
+. Fl h | \-help
+.Nm
+. Ar HOST
+. Ar PRODUCT Ns ...
+.\" SYNOPSIS }}}
+.
+.\" DESCRIPTION {{{
+.Sh DESCRIPTION
+.Nm
+opens a master ssh connection to a given
+.Ar HOST
+and earmark it for testing given
+.Ar PRODUCT Ns s.
+.Bl -tag -width "xxx"
+. It Ar HOST
+.  Oo Ar user Ns Li @ Oc Ns Ar hostname
+. It Ar PRODUCT
+See
+.Sy Product names
+in
+.Xr repoq 1 .
+.El
+.\" }}}
+.
+.\" SEE ALSO {{{
+.Sh SEE ALSO
+.Xr smrt-detach 1 ,
+.Xr smrt-hosts 1 ,
+.Xr ssh 1 ,
+.Xr repoq 1 .
+.\" }}}
+.
+.\" SMRT {{{
+.Sh SMRT
+.Nm
+is part of
+.Xr smrt 1 .
+.\" }}}

@@ -1,0 +1,95 @@
+.\" vim: tw=72 fdm=marker cms=.\\"\ %s
+.
+.\" FRONT MATTER {{{
+.Dd Jul 29, 2016
+.Os
+.Dt SMRT 1
+.
+.Sh NAME
+.Nm smrt
+.Nd SUSE Maintenance Reject Tool
+.\" FRONT MATTER }}}
+.
+.\" SYNOPSIS {{{
+.Sh SYNOPSIS
+.Nm
+.Fl h | \-help
+.Nm
+.Op Fl I Ar ISSUER
+.Cm COMMAND
+.Op Ar options
+.Op Ar operands
+.\" SYNOPSIS }}}
+.
+.\" DESCRIPTION {{{
+.Sh DESCRIPTION
+.Nm
+automates various aspects of testing maintenance updates for
+SUSE and openSUSE products.
+.\" }}}
+.
+.\" OPTIONS {{{
+.Sh OPTIONS
+.
+.Bl -tag -width "xx"
+. It Fl h
+Display usage instructions.
+. It Fl \-help
+Display full help.
+. It Fl I, \-issuer Ar ISSUER
+Imply
+.  Ar ISSUER
+for the operation.
+.El
+.\" }}}
+.
+.\" COMMANDS {{{
+.Sh COMMANDS
+.
+.Bl -tag -width "xx"
+. It Xr smrt-adopt 1
+Adopt a maintenance request for testing
+. It Xr smrt-attach 1
+Ssh into a refhost and earmark it for testing given products
+. It Xr smrt-bs 1
+Download XML data for a maintenance request from the BuildService
+. It Xr smrt-bugs 1
+List or browse bugs related to a maintenance request
+. It Xr smrt-checkout 1
+Download metadata for a maintenance request
+. It Xr smrt-config 1
+Manipulate smrt configuration file
+. It Xr smrt-fetch 1
+Download metadata for a maintenance request
+. It Xr smrt-hosts 1
+Display information on attached hosts
+. It Xr smrt-mklog 1
+Create MTUI-compatible testreport
+. It Xr smrt-packages 1
+Display version information for packages under test
+. It Xr smrt-push 1
+Publish metadata for a maintenance request
+. It Xr smrt-xml 1
+Display information gleaned from BuildService XML data
+.El
+.\" }}}
+.
+.\" SEE ALSO {{{
+.Sh SEE ALSO
+.Xr repoq 1 ,
+.Xr repose 1 ,
+.Xr ssh 1 ,
+.Xr sumaxy 1 .
+.\" }}}
+.
+.\" AUTHORS {{{
+.Sh AUTHORS
+.An Roman Neuhauser Aq Mt rneuhauser+smrt@sigpipe.cz
+.\" AUTHORS }}}
+.
+.\" BUGS {{{
+.Sh BUGS
+No doubt plentiful.
+Please report them at
+.Lk https://github.com/openSUSE/smrt/issues
+.\" BUGS }}}

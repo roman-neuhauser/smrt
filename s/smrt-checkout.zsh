@@ -48,7 +48,7 @@ function $0:t # {{{
 
   arg=${1-}
   case $arg in
-  $~PATTERN_MRID|$~PATTERN_SLUG) : ;;
+  $~PATTERN_SLUG) : ;;
   *) reject-misuse $arg ;;
   esac
 

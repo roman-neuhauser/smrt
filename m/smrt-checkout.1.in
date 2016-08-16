@@ -1,0 +1,45 @@
+.\" vim: tw=72 fdm=marker cms=.\\"\ %s
+.
+.\" FRONT MATTER {{{
+.Dd Aug 15, 2016
+.Os
+.Dt SMRT-CHECKOUT 1
+.
+.Sh NAME
+.Nm smrt\ checkout
+.Nd Check out previously commited maintenance update metadata
+.\" FRONT MATTER }}}
+.
+.\" SYNOPSIS {{{
+.Sh SYNOPSIS
+.Nm
+.Fl h | \-help
+.Nm
+. Ar SLUG
+.\" SYNOPSIS }}}
+.
+.\" DESCRIPTION {{{
+.Sh DESCRIPTION
+.Nm
+checks out metadata for the maintenance update given in
+. Ar SLUG
+from the configured
+.Em testreport_repository
+(see
+.Xr smrt 5 Ns ).
+.
+.\" }}}
+.
+.\" SEE ALSO {{{
+.Sh SEE ALSO
+.Xr smrt-fetch 1 ,
+.Xr smrt-push 1 ,
+.Xr svn 1 .
+.\" }}}
+.
+.\" SMRT {{{
+.Sh SMRT
+.Nm
+is part of
+.Xr smrt 1 .
+.\" }}}

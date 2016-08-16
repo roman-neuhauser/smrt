@@ -1,0 +1,47 @@
+.\" vim: tw=72 fdm=marker cms=.\\"\ %s
+.
+.\" FRONT MATTER {{{
+.Dd Aug 15, 2016
+.Os
+.Dt SMRT-CONFIG 1
+.
+.Sh NAME
+.Nm smrt\ config
+.Nd Manipulate smrt configuration file
+.\" FRONT MATTER }}}
+.
+.\" SYNOPSIS {{{
+.Sh SYNOPSIS
+.Nm
+. Fl h | \-help
+.Nm
+. Cm edit
+.Nm
+. Cm get
+. Ar KEY
+.Nm
+. Cm set
+. Ar KEY
+. Ar VAL
+.\" SYNOPSIS }}}
+.
+.\" DESCRIPTION {{{
+.Sh DESCRIPTION
+.Nm
+is used to query or update the
+.Xr smrt 5
+configuration file.
+.\" }}}
+.
+.\" SEE ALSO {{{
+.Sh SEE ALSO
+.Xr smrt 1 ,
+.Xr smrt 5 .
+.\" }}}
+.
+.\" SMRT {{{
+.Sh SMRT
+.Nm
+is part of
+.Xr smrt 1 .
+.\" }}}

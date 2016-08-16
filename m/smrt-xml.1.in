@@ -1,0 +1,89 @@
+.\" vim: tw=72 fdm=marker cms=.\\"\ %s
+.
+.\" FRONT MATTER {{{
+.Dd Aug 15, 2016
+.Os
+.Dt SMRT-XML 1
+.
+.Sh NAME
+.Nm smrt\ xml
+.Nd Display information gleaned from BuildService XML data
+.\" FRONT MATTER }}}
+.
+.\" SYNOPSIS {{{
+.Sh SYNOPSIS
+.Nm
+. Fl h | \-help
+.Nm
+. Cm binaries
+. Op Ar PACKAGES.XML
+.Nm
+. Cm bugs
+. Op Ar PATCHINFO.XML
+.Nm
+. Cm channels
+. Op Ar PROJECT.XML
+.Nm
+. Cm codestreams
+. Op Ar PROJECT.XML
+.Nm
+. Cm email
+. Ar PERSON.XML
+.Nm
+. Cm maintainers
+. Ar OWNERS.XML
+.Nm
+. Cm sources
+. Op Ar PACKAGES.XML
+.\" SYNOPSIS }}}
+.
+.\" DESCRIPTION {{{
+.Sh DESCRIPTION
+.Nm
+is used to display information contained in XML metadata
+for a maintenance update.
+.
+.Ss Subcommands
+.Bl -tag -width "xxx"
+. It Cm binaries Op Ar FILE
+.  Ar FILE
+defaults to
+.  Pa packages.xml .
+. It Cm bugs Op Ar FILE
+.  Ar FILE
+defaults to
+.  Pa patchinfo.xml .
+. It Cm channels Op Ar FILE
+.  Ar FILE
+defaults to
+.  Pa project.xml .
+. It Cm codestreams Op Ar FILE
+.  Ar FILE
+defaults to
+.  Pa project.xml .
+. It Cm email Ar PERSON.XML
+.  Ar PERSON.XML
+has no default.
+. It Cm maintainers Ar OWNERS.XML
+.  Ar OWNERS.XML
+has no default.
+. It Cm sources Op Ar FILE
+.  Ar FILE
+defaults to
+.  Pa packages.xml .
+.El
+.\" }}}
+.
+.\" SEE ALSO {{{
+.Sh SEE ALSO
+.Xr smrt 1 ,
+.Xr smrt-bs 1 ,
+.Xr smrt-fetch 1 .
+.\" }}}
+.
+.\" SMRT {{{
+.Sh SMRT
+.Nm
+is part of
+.Xr smrt 1 .
+.\" }}}

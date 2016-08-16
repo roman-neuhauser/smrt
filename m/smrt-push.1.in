@@ -1,0 +1,40 @@
+.\" vim: tw=72 fdm=marker cms=.\\"\ %s
+.
+.\" FRONT MATTER {{{
+.Dd Aug 15, 2016
+.Os
+.Dt SMRT-PUSH 1
+.
+.Sh NAME
+.Nm smrt\ push
+.Nd Publish metadata for a maintenance request
+.\" FRONT MATTER }}}
+.
+.\" SYNOPSIS {{{
+.Sh SYNOPSIS
+.Nm
+. Op Fl h | \-help
+.\" SYNOPSIS }}}
+.
+.\" DESCRIPTION {{{
+.Sh DESCRIPTION
+.Nm
+commits files into the testreport repository at
+.Sy testreport_repository
+.Po see Xr smrt 5 Pc .
+.\" }}}
+.
+.\" SEE ALSO {{{
+.Sh SEE ALSO
+.Xr smrt-checkout 1 ,
+.Xr smrt-config 1 ,
+.Xr smrt-mklog 1 ,
+.Xr smrt 5 .
+.\" }}}
+.
+.\" SMRT {{{
+.Sh SMRT
+.Nm
+is part of
+.Xr smrt 1 .
+.\" }}}

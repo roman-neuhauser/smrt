@@ -1,0 +1,47 @@
+.\" vim: tw=72 fdm=marker cms=.\\"\ %s
+.
+.\" FRONT MATTER {{{
+.Dd Aug 15, 2016
+.Os
+.Dt SMRT-BUGS 1
+.
+.Sh NAME
+.Nm smrt\ bugs
+.Nd List or browse bugs related to a maintenance request
+.\" FRONT MATTER }}}
+.
+.\" SYNOPSIS {{{
+.Sh SYNOPSIS
+.Nm
+. Fl h | \-help
+.Nm
+. Cm browse Op Ar BUG Ns ...
+.Nm
+. Oo Cm list Oc Op Ar BUG Ns ...
+.Nm
+. Cm urls Op Ar BUG Ns ...
+.\" SYNOPSIS }}}
+.
+.\" DESCRIPTION {{{
+.Sh DESCRIPTION
+.Nm
+is used to display information about bugs attached to
+a maintenance update.
+.\" }}}
+.
+.\" SEE ALSO {{{
+.Sh SEE ALSO
+.Xr smrt 1 ,
+.Xr smrt-bs 1 ,
+.Xr smrt-fetch 1 ,
+.Xr smrt-packages 1 ,
+.Xr smrt-xml 1 ,
+.Xr xdg-open 1 .
+.\" }}}
+.
+.\" SMRT {{{
+.Sh SMRT
+.Nm
+is part of
+.Xr smrt 1 .
+.\" }}}

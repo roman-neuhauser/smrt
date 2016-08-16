@@ -1,0 +1,84 @@
+.\" vim: tw=72 fdm=marker cms=.\\"\ %s
+.
+.\" FRONT MATTER {{{
+.Dd Aug 15, 2016
+.Os
+.Dt SMRT-BS 1
+.
+.Sh NAME
+.Nm smrt\ bs
+.Nd Retrieve XML data for a maintenance request from BuildService API
+.\" FRONT MATTER }}}
+.
+.\" SYNOPSIS {{{
+.Sh SYNOPSIS
+.Nm
+. Fl h | \-help
+.Nm
+. Cm maintainers
+. Ar PKG
+.Nm
+. Cm packages
+. Ar MPRJ | SLUG
+.Nm
+. Cm patchinfo
+. Ar MPRJ | SLUG
+.Nm
+. Cm project
+. Ar MPRJ | SLUG
+.Nm
+. Cm repos
+. Ar MPRJ | SLUG
+.Nm
+. Cm request
+. Ar MRID | SLUG
+.Nm
+. Cm request-diff
+. Ar MRID | SLUG
+.\" SYNOPSIS }}}
+.
+.\" DESCRIPTION {{{
+.Sh DESCRIPTION
+.Nm
+provides simple interface to retrieval of individual
+pieces of raw XML metadata from a BuildService API.
+.
+.Ss Subcommands
+.Bl -tag -width "xxx"
+. It Cm maintainers Ar PKG
+Retrieve bugowners of a given package.
+. It Cm packages Ar MPRJ | SLUG
+Retrieve packages published within the maintenance project.
+. It Cm patchinfo Ar MPRJ | SLUG
+Retrieve the
+.  Pa _patchinfo
+file.
+. It Cm project Ar MPRJ | SLUG
+Retrieve the project's
+.  Pa _meta
+file.
+. It Cm repos Ar MPRJ | SLUG
+Retrieve the project's
+.  Pa _result
+file.
+. It Cm request Ar MRID | SLUG
+Retrieve the maintenance request itself.
+. It Cm request-diff Ar MRID | SLUG
+Retrieve the maintenance request diff.
+.El
+.\" }}}
+.
+.\" SEE ALSO {{{
+.Sh SEE ALSO
+.Xr curl 1 ,
+.Xr smrt 1 ,
+.Xr smrt-fetch 1 ,
+.Xr smrt-xml 1 .
+.\" }}}
+.
+.\" SMRT {{{
+.Sh SMRT
+.Nm
+is part of
+.Xr smrt 1 .
+.\" }}}

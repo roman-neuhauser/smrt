@@ -1,0 +1,41 @@
+.\" vim: tw=72 fdm=marker cms=.\\"\ %s
+.
+.\" FRONT MATTER {{{
+.Dd Aug 15, 2016
+.Os
+.Dt SMRT-PACKAGES 1
+.
+.Sh NAME
+.Nm smrt\ packages
+.Nd Display version information for packages under test
+.\" FRONT MATTER }}}
+.
+.\" SYNOPSIS {{{
+.Sh SYNOPSIS
+.Nm
+. Fl h | \-help
+.Nm
+. Op Ar PKG Ns ...
+.\" SYNOPSIS }}}
+.
+.\" DESCRIPTION {{{
+.Sh DESCRIPTION
+.Nm
+is used to display information about packages updated in
+a maintenance update.
+.\" }}}
+.
+.\" SEE ALSO {{{
+.Sh SEE ALSO
+.Xr smrt-bs 1 ,
+.Xr smrt-fetch 1 ,
+.Xr smrt-xml 1 ,
+.Xr smrt 1 .
+.\" }}}
+.
+.\" SMRT {{{
+.Sh SMRT
+.Nm
+is part of
+.Xr smrt 1 .
+.\" }}}

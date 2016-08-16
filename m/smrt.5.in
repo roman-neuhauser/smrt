@@ -1,0 +1,93 @@
+.\" vim: tw=72 fdm=marker cms=.\\"\ %s
+.
+.\" FRONT MATTER {{{
+.Dd Aug 15, 2016
+.Os
+.Dt SMRT 5
+.
+.Sh NAME
+.Nm smrt
+.Nd Syntax of configuration files for smrt
+.\" FRONT MATTER }}}
+.
+.\" SYNOPSIS {{{
+.Sh SYNOPSIS
+.Pa @sysconfdir@/smrt
+.\" SYNOPSIS }}}
+.
+.\" DESCRIPTION {{{
+.Sh DESCRIPTION
+The ABNF grammar below is a simplified approximation
+of the syntax:
+.
+.Bd -literal -offset "xxx"
+cfgfile    = *assignment
+assignment = property "=" *value
+.Ed
+.
+.Pp
+The configuration file is a flat, possibly empty,
+collection of
+.Sy assignment Ns s.
+Each
+.Sy assignment
+occupies a single line.
+.Sy Property
+is a valid shell identifier.
+.Sy Value
+is a
+.Dq shell word .
+Multiple
+.Sy value Ns s
+are separated by spaces or tabs.
+.Pp
+Configuration values get embedded in files produced by
+. Xr smrt-fetch 1
+and
+. Xr smrt-mklog 1 .
+.Ss Properties
+.Bl -tag -width "xxx"
+. It assumed_issuer
+. Qq Li SUSE
+or
+. Qq Li openSUSE ,
+defaults to
+. Qq Li SUSE .
+. It bugzilla_url
+URL through which bug information is retrieved.
+. It issuer_apiurls
+Whitespace-separated list of colon-separated
+issuer-url pairs.
+. It l3db_creds
+Colon-separated username-password pair for the L3
+incident database (only relevant to SUSE updates).
+. It l3db_url
+Prefix of the URL used to retrieve L3 incident info.
+Appended by a list of comma-separated Bugzilla
+ticket numbers.
+. It metadata_url
+URL prefix used to retrieve testplatforms, product
+definitions and reviewers from.
+. It testreport_repository
+URL of the Subversion repository with testreports.
+.El
+.\" }}}
+.
+.\" SEE ALSO {{{
+.Sh SEE ALSO
+.Xr smrt-config 1 ,
+.Xr svn 1 .
+.\" }}}
+.
+.\" AUTHORS {{{
+.Sh AUTHORS
+.An Roman Neuhauser Aq Mt rneuhauser+smrt@sigpipe.cz
+.\" AUTHORS }}}
+.
+.\" BUGS {{{
+.Sh BUGS
+No doubt plentiful.
+Please report them at
+.Lk https://github.com/openSUSE/smrt/issues
+.\" BUGS }}}
+
