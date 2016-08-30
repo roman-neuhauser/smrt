@@ -9,14 +9,14 @@ setup::
   > '*-main%*'
   > 'impl%*'
   > 'new-tab%*'
-  > 'nohup%*'
+  > 'konsole%*'
   > 'qdbus%*'
   > 'run-*%*'
   > 'zsh%*'
   > )
 
   $ smrt_dryrun+=(
-  > 'nohup%*'
+  > 'konsole%*'
   > 'sleep%*'
   > )
 
@@ -41,7 +41,7 @@ some hosts attached, no hosts given::
   o run-kde root@rofl toor@snafu
   o zsh -f */smrt.terms.kde.zsh root@rofl toor@snafu (glob)
   o smrt.terms.kde.zsh-main root@rofl toor@snafu
-  o nohup konsole --nofork
+  o konsole --nofork
   o new-tab 1 root@rofl
   o qdbus org.kde.konsole-0 /Sessions/1 sendText 'ssh -Y root@rofl'
   o qdbus org.kde.konsole-0 /Sessions/1 sendText '

@@ -27,7 +27,7 @@ function $cmdname-main # {{{
 {
   (( $# )) || reject-misuse
 
-  o nohup konsole --nofork >&- <&-
+  o konsole --nofork
   declare -gr K_DBUS_SRV=org.kde.konsole-$!
   local sessno=1
 
