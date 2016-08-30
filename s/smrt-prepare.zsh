@@ -7,13 +7,15 @@ declare -gr cmdhelp='
 usage: #c -h|--help
 usage: #c [HOST...]
 
-Downgrade relevant packages to latest released versions
+Prepare hosts for current maintenance update
 
   Options:
     -h                Display this message
     --help            Display manual page
+    --force           Use zypper install with --force
+    --installed       Do not install missing packages
   Operands:
-    HOST              [USER@]HOSTSPEC
+    HOST              Machine to manipulate
 '
 
 declare -gr needs_workdir=1
@@ -25,16 +27,19 @@ declare -gr preludedir="${SMRT_PRELUDEDIR:-@preludedir@}"
 function $cmdname-main # {{{
 {
   local opt arg
-  local -i i=0 norepo=0
-  while haveopt i opt arg h help no-repo -- "$@"; do
+  local -i i=0 o_force=0 o_installed=0
+  while haveopt i opt arg h help force installed -- "$@"; do
     case $opt in
     h|help) display-help $opt ;;
-    no-repo) norepo=1 ;;
+    force) o_force=1 ;;
+    installed) o_installed=1 ;;
     ?)      reject-misuse -$arg ;;
     esac
   done; shift $i
 
   check-preconditions $0
+
+  local -r issue=${${(s.:.):-$(< slug)}[3]}
 
   local -a hosts; hosts=("$@")
 
@@ -47,9 +52,23 @@ function $cmdname-main # {{{
   (( $#hosts )) || hosts=(.connected/*(N:t))
   (( $#hosts )) || complain 1 "no hosts attached"
 
-  (( norepo )) || o repose issue-rm $hosts -- $(<slug)
+  local pkgs="$(awk '{print $4}' binaries | sort -u)"
+  local -a cmds; cmds=("printf '%s\n' $pkgs")
+  local force=
 
-  o smrt prepare --force --installed $hosts
+  if (( o_force )); then
+    force=--force
+  fi
+
+  if (( o_installed )); then
+    cmds=("rpm -q --qf '%{NAME}\n' $pkgs | grep -v 'is not installed'")
+  fi
+
+  cmds+=("xargs -r zypper -n in $force --force-resolution -y -l --oldpackage")
+  o run-in-hosts \
+    $hosts \
+    -- \
+    "${(@j: | :)cmds}"
 } # }}}
 
 . $preludedir/smrt.coda.zsh

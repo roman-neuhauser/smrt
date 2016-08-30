@@ -41,6 +41,7 @@ commands += smrt-get
 commands += smrt-hosts
 commands += smrt-mklog
 commands += smrt-packages
+commands += smrt-prepare
 commands += smrt-push
 commands += smrt-put
 commands += smrt-revert
