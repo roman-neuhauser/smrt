@@ -15,14 +15,14 @@
 .Nm
 . Fl h | \-help
 .Nm
-. Op Fl \-system | \-user
+. Op Fl \-system
 . Cm edit
 .Nm
-. Op Fl \-system | \-user
+. Op Fl \-system
 . Cm get
 . Ar KEY
 .Nm
-. Op Fl \-system | \-user
+. Op Fl \-system
 . Cm set
 . Ar KEY
 . Ar VAL
@@ -51,10 +51,6 @@ Display full help.
 . It Fl \-system
 Manipulate system-wide configuration in
 . Pa @sysconfdir@/smrt .
-. It Fl \-user
-Manipulate user-specific configuration in
-. Pa $HOME/.smrtrc .
-This is default behavior.
 .El
 .\" }}}
 .
@@ -83,11 +79,9 @@ Display active configuration.
 .Sh ENVIRONMENT
 .Bl -tag -width "xx"
 . It Ev SMRT_CONFIG
-If neither
+If
 . Fl \-system
-nor
-. Fl \-user
-is given and this variable is set, its value will be taken as
+is not given and this variable is set, its value will be taken as
 pathname for the configuration file used.
 .\" }}}
 .
