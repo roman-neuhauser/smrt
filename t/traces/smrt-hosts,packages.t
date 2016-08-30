@@ -24,8 +24,8 @@ some hosts attached, no hosts given::
   $ print > .connected/snafu -l rofl lmao
 
   $ smrt hosts --packages
-  o run-in-hosts rofl snafu -- rpm -q --queryformat '%{NAME} %{VERSION} %{RELEASE}\n' rsync
-  o log-output parallel --quote --plain --tag --joblog joblog --jobs=0 ssh -o ControlPath=*/%r@%h:%p '{1}' rpm -q --queryformat * rsync ::: rofl snafu (glob)
+  o run-in-hosts rofl snafu -- 'rpm -q --queryformat '\''%{NAME} %{VERSION} %{RELEASE}\n'\'' rsync'
+  o log-output parallel * ssh -o ControlPath=*/%r@%h:%p '{1}' \''rpm -q --queryformat '\''\'\'\''%{NAME} %{VERSION} %{RELEASE}\n'\''\'\'\'' rsync'\' ::: rofl snafu (glob)
   rofl\tfake-ssh some output from rofl (esc)
   rofl\tfake-ssh some error from rofl (esc)
   snafu\tfake-ssh some output from snafu (esc)

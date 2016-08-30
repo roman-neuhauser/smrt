@@ -83,7 +83,7 @@ function impl # {{{
   o run-in-hosts \
     $hosts \
     -- \
-    $suite
+    "${(j: :)${(@q-)suite}}"
 } # }}}
 
 . $preludedir/smrt.coda.zsh

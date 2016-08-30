@@ -22,10 +22,11 @@ failure in some hosts::
   >   :
   > done; shift $((OPTIND-1))
   > if [[ $1 == fubar ]]; then
-  >   print -u 2 "command not found: $2"
+  >   print -u 2 "command not found: ${2[(w)1]}"
   >   exit 1
   > else
-  >   "$@[2,-1]"
+  >   set -- ${(z)2}
+  >   "$@"
   >   exit 0
   > fi
   > EOF
@@ -79,7 +80,7 @@ happy path::
   > while getopts o: o; do
   >   :
   > done; shift $((OPTIND)) # also hostname
-  > "$@"
+  > "${(z)@}"
   > exit 0
   > EOF
 

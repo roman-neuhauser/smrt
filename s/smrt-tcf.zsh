@@ -75,7 +75,7 @@ function do-list # {{{
     || reject-misuse $h
   done
 
-  o run-in-hosts $hosts -- ls /usr/share/qa/tools/\*-run
+  o run-in-hosts $hosts -- "ls /usr/share/qa/tools/*-run"
 } # }}}
 
 function do-run # {{{

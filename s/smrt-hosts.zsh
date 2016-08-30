@@ -102,7 +102,7 @@ function list-packages # {{{
   o run-in-hosts \
     $hosts \
     -- \
-    rpm -q --queryformat '%{NAME} %{VERSION} %{RELEASE}\n' $suite
+    "rpm -q --queryformat '%{NAME} %{VERSION} %{RELEASE}\n' $suite"
 } # }}}
 
 . $preludedir/smrt.coda.zsh

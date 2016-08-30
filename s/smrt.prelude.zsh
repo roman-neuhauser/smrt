@@ -232,11 +232,7 @@ function log-output # {{{
 {
   local h= t= line=
   for h in $hosts; do
-    {
-    print -rn '%'
-    print -f ' %s' "${(@q-)cmd}"
-    print
-    } >>| log.$h
+    print >>| log.$h -f '%% %s\n' "${(j: :)${(@)cmd}}"
   done
 
   "$@" 2>&1 | while IFS=$'\t\n' read t line; do
@@ -256,7 +252,6 @@ function run-in-hosts # {{{
   (( $#cmd )) || complain 1 "no command given"
 
   local -a popts; popts=(
-    --quote
     --plain
     --tag
     --joblog joblog
@@ -271,7 +266,7 @@ function run-in-hosts # {{{
   done
 
   o log-output parallel "${(@)popts}" \
-    ssh -o ControlPath=$ctlpath '{1}' "${(@q)cmd}" \
+    ssh -o ControlPath=$ctlpath '{1}' "${(q-)cmd}" \
     ::: "${(@)hosts}"
 } # }}}
 
