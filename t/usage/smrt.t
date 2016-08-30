@@ -28,10 +28,12 @@ help::
       config            Manipulate smrt configuration file
       detach            Disconnect attached refhost(s)
       fetch             Download metadata for a maintenance request
+      get               Download files and directories from attached hosts
       hosts             Display information on attached hosts
       mklog             Create MTUI-compatible testreport
       packages          Display version information for packages under test
       push              Publish metadata for a maintenance request
+      put               Upload files and directories to attached hosts
       revert            Downgrade relevant packages to latest released versions
       run               Run a command in attached hosts
       tcf               Query and manipulate CTCS2 testsuites and results
@@ -79,10 +81,12 @@ outside a testreport::
       config            Manipulate smrt configuration file
       detach            Disconnect attached refhost(s)
       fetch             Download metadata for a maintenance request
+      get               Download files and directories from attached hosts
       hosts             Display information on attached hosts
       mklog             Create MTUI-compatible testreport
       packages          Display version information for packages under test
       push              Publish metadata for a maintenance request
+      put               Upload files and directories to attached hosts
       revert            Downgrade relevant packages to latest released versions
       run               Run a command in attached hosts
       tcf               Query and manipulate CTCS2 testsuites and results
@@ -119,10 +123,12 @@ inside a testreport::
       config            Manipulate smrt configuration file
       detach            Disconnect attached refhost(s)
       fetch             Download metadata for a maintenance request
+      get               Download files and directories from attached hosts
       hosts             Display information on attached hosts
       mklog             Create MTUI-compatible testreport
       packages          Display version information for packages under test
       push              Publish metadata for a maintenance request
+      put               Upload files and directories to attached hosts
       revert            Downgrade relevant packages to latest released versions
       run               Run a command in attached hosts
       tcf               Query and manipulate CTCS2 testsuites and results

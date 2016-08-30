@@ -150,8 +150,9 @@ followed by
 .\" }}}
 .\" get {{{
 .It Ic get Ar PATHNAME
-. Pp
-Not implemented yet.
+. Bd -literal
+.  Nm smrt Cm get Oo Ar HOST Ns ... Oc Li -- Ar SOURCE Ns ...
+. Ed
 .\" }}}
 .\" help {{{
 .It Ic help Op Ar COMMAND
@@ -259,10 +260,11 @@ sockets
 .  Nm smrt Cm run Ar HOST Ns ... -- Nm zypper Fl n Cm install Fl y Ar PACKAGE Ns ...
 . Ed
 .\" }}}
-.\" put {{{
+.\" get {{{
 .It Ic put Ar PATHNAME
-. Pp
-Not implemented yet.
+. Bd -literal
+.  Nm smrt Cm put Oo Ar HOST Ns ... Oc Li -- Ar SOURCE Ns ... Ar TARGET
+. Ed
 .\" }}}
 .\" quit {{{
 .It Ic quit
