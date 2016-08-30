@@ -405,9 +405,10 @@ type variant.
 No replacement, superceded by automated checks run in the BuildService.
 .\" }}}
 .\" terms {{{
-.It Ic terms Op Ar TERMNAME
-. Pp
-No replacement.
+.It Ic terms Op Ar TYPE
+. Bd -literal
+.  Nm smrt Cm terms Ar TYPE Op Ar HOST Ns ...
+. Ed
 .\" }}}
 .\" testopia_create {{{
 .It Ic testopia_create Ar PACKAGE Ns Li , Ns Ar SUMMARY
