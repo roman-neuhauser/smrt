@@ -25,15 +25,31 @@ declare -gr preludedir="${SMRT_PRELUDEDIR:-@preludedir@}"
 function $0:t # {{{
 {
   local opt arg
-  local -i i=0
-  while haveopt i opt arg h help -- "$@"; do
+  local -i i=0 norepo=0
+  while haveopt i opt arg h help no-repo -- "$@"; do
     case $opt in
     h|help) display-help $opt ;;
+    no-repo) norepo=1 ;;
     ?)      reject-misuse -$arg ;;
     esac
   done; shift $i
 
   check-preconditions $0
+
+  local -r issue=${${(s.:.):-$(< slug)}[3]}
+
+  local -a hosts; hosts=("$@")
+
+  local h=
+  for h in $hosts; do
+    :; [[ -f .connected/$h ]] \
+    || complain 1 "$h is not attached"
+  done
+
+  (( $#hosts )) || hosts=(.connected/*(N:t))
+  (( $#hosts )) || complain 1 "no hosts attached"
+
+  (( norepo )) || o removerepo "$issue" $hosts
 
   impl "$@"
 } # }}}
@@ -49,6 +65,12 @@ function impl # {{{
     $hosts \
     -- \
     "pkgs=\$(rpm -q --qf '%{NAME}\n' $pkgs | sed '/is not installed/d'); if test x = \"x\$pkgs\"; then echo nothing to do; else zypper -n in --oldpackage --force-resolution -y -l \$pkgs; fi"
+} # }}}
+
+function removerepo # {{{
+{
+  local issue=$1; shift
+  o repose issue-rm $@ -- $(<slug)
 } # }}}
 
 $0:t "$@"

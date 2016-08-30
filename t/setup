@@ -15,6 +15,7 @@ smrt_chatty+=('exec%man%*')
 declare -Tgx SMRT_DRYRUN smrt_dryrun \|
 smrt_dryrun=('xdg-open%*' $smrt_dryrun)
 smrt_dryrun+=('exec%man%*')
+smrt_dryrun+=('repose%*')
 
 declare -gx FIXTURES=$TESTROOT/fixtures
 

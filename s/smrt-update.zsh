@@ -25,28 +25,48 @@ declare -gr preludedir="${SMRT_PRELUDEDIR:-@preludedir@}"
 function $0:t # {{{
 {
   local opt arg
-  local -i i=0
-  while haveopt i opt arg h help -- "$@"; do
+  local -i i=0 norepo=0
+  while haveopt i opt arg h help no-repo -- "$@"; do
     case $opt in
     h|help) display-help $opt ;;
+    no-repo) norepo=1 ;;
     ?)      reject-misuse -$arg ;;
     esac
   done; shift $i
 
   check-preconditions $0
 
-  impl "$@"
+  local -r issue=${${(s.:.):-$(< slug)}[3]}
+
+  local -a hosts; hosts=("$@")
+
+  local h=
+  for h in $hosts; do
+    :; [[ -f .connected/$h ]] \
+    || complain 1 "$h is not attached"
+  done
+
+  (( $#hosts )) || hosts=(.connected/*(N:t))
+  (( $#hosts )) || complain 1 "no hosts attached"
+
+  (( norepo )) || o addrepo "$issue" $hosts
+
+  impl "$issue" $hosts
 } # }}}
 
 function impl # {{{
 {
-  local -a hosts; hosts=("$@")
-  (( $#hosts )) || hosts=(.connected/*(N:t))
-  local -r issue=${${(s.:.):-$(< slug)}[3]}
+  local issue=$1; shift
   o run-in-hosts \
-    $hosts \
+    $@ \
     -- \
     "zypper patches | awk -F '|' '/:p=$issue\\>/ { print \$2; }' | while read p; do zypper -n install -l -y -t patch \$p; done"
+} # }}}
+
+function addrepo # {{{
+{
+  local issue=$1; shift
+  o repose issue-add $@ -- .
 } # }}}
 
 $0:t "$@"
