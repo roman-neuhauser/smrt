@@ -53,7 +53,7 @@ function $cmdname-main # {{{
     esac
   done; shift $i
 
-  check-preconditions $0
+  check-preconditions $cmdname
 
   o $impl "$@"
 } # }}}
@@ -90,4 +90,4 @@ function list-full # {{{
 
 . $preludedir/smrt.coda.zsh
 
-$cmdname-main "$@"
+o $cmdname-main "$@"

@@ -15,7 +15,7 @@
 .Nm
 . Fl h | \-help
 .Nm
-. Oo Ar HOST Ns ... Oc Li -- Ar SOURCE Ns ...
+. Oo Ar HOST Ns ... Li -- Oc Ar SOURCE Ns ...
 .\" SYNOPSIS }}}
 .
 .\" DESCRIPTION {{{

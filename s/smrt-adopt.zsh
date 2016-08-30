@@ -40,7 +40,7 @@ declare -gr preludedir="${SMRT_PRELUDEDIR:-@preludedir@}"
 
 . $preludedir/smrt.prelude.zsh || exit 2
 
-function $0:t # {{{
+function $cmdname-main # {{{
 {
   local opt arg
   local -i i=0
@@ -56,4 +56,4 @@ function $0:t # {{{
 
 . $preludedir/smrt.coda.zsh
 
-$0:t "$@"
+o $cmdname-main "$@"

@@ -40,7 +40,7 @@ declare -gr preludedir="${SMRT_PRELUDEDIR:-@preludedir@}"
 
 . $preludedir/smrt.prelude.zsh || exit 2
 
-function $0:t # {{{
+function $cmdname-main # {{{
 {
   local opt arg impl=impl-default
   local -i i=0
@@ -52,7 +52,7 @@ function $0:t # {{{
     esac
   done; shift $i
 
-  check-preconditions $0
+  check-preconditions $cmdname
 
   :; (( $# )) \
   || set -- .connected/*(:t)
@@ -94,4 +94,4 @@ function impl-dead # {{{
 
 . $preludedir/smrt.coda.zsh
 
-$0:t "$@"
+o $cmdname-main "$@"

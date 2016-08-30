@@ -44,7 +44,7 @@ declare -gr preludedir="${SMRT_PRELUDEDIR:-@preludedir@}"
 
 . $preludedir/smrt.prelude.zsh || exit 2
 
-function $0:t # {{{
+function $cmdname-main # {{{
 {
   local opt arg
   local -i i=0
@@ -65,7 +65,7 @@ function $0:t # {{{
   arg=$1
   shift
 
-  check-preconditions $0
+  check-preconditions $cmdname
 
   (( $# )) || set \*
   o do-$arg bugs/bnc${~^@}(#q/:t)
@@ -103,4 +103,4 @@ function do-urls # {{{
 
 . $preludedir/smrt.coda.zsh
 
-$0:t "$@"
+o $cmdname-main "$@"

@@ -25,6 +25,7 @@ test::
   O find-cmd mklog
   o run-cmd */smrt-mklog (glob)
   o load-config */.smrtrc (glob)
+  o smrt-mklog-main
   o assert-workdir smrt-mklog
   o impl
   o get-products-archs SLE-DESKTOP:12-SP1:x86_64 SLE-DESKTOP:12:x86_64 SLE-SERVER:12-SP1:ppc64le SLE-SERVER:12-SP1:s390x SLE-SERVER:12-SP1:x86_64 SLE-SERVER:12:ppc64le SLE-SERVER:12:s390x SLE-SERVER:12:x86_64

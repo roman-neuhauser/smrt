@@ -26,6 +26,7 @@ no hosts attached, no hosts given::
 
   $ smrt terms xterm
   o run-cmd */smrt-terms xterm (glob)
+  o smrt-terms-main xterm
   o impl xterm
   error: no hosts attached
   [1]
@@ -38,6 +39,7 @@ some hosts attached, no hosts given::
 
   $ smrt terms xterm
   o run-cmd */smrt-terms xterm (glob)
+  o smrt-terms-main xterm
   o impl xterm
   o run-xterm root@rofl toor@snafu
   o zsh -f */smrt.terms.xterm.zsh root@rofl toor@snafu (glob)

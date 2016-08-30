@@ -37,7 +37,7 @@ function $cmdname-main # {{{
     esac
   done; shift $i
 
-  check-preconditions $0
+  check-preconditions $cmdname
 
   local -r issue=${${(s.:.):-$(< slug)}[3]}
 

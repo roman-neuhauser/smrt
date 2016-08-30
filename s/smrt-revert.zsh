@@ -34,7 +34,7 @@ function $cmdname-main # {{{
     esac
   done; shift $i
 
-  check-preconditions $0
+  check-preconditions $cmdname
 
   local -a hosts; hosts=("$@")
 

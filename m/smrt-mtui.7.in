@@ -119,7 +119,7 @@ in the current directory by default.
 .\" downgrade {{{
 .It Ic downgrade Ar HOST
 . Bd -literal
-.  Nm smrt Cm revert Ar HOST Ns ...
+.  Nm smrt Cm revert Op Ar HOST Ns ...
 . Ed
 .\" }}}
 .\" edit {{{
@@ -151,7 +151,7 @@ followed by
 .\" get {{{
 .It Ic get Ar PATHNAME
 . Bd -literal
-.  Nm smrt Cm get Oo Ar HOST Ns ... Oc Li -- Ar SOURCE Ns ...
+.  Nm smrt Cm get Oo Ar HOST Ns ... Li -- Oc Ar SOURCE Ns ...
 . Ed
 .\" }}}
 .\" help {{{
@@ -177,7 +177,7 @@ directly.
 .\" install {{{
 .It Ic install Ar HOST Ns Oo Li , Ns No ... Oc Ns Li , Ns Ar PACKAGE Ns ...
 . Bd -literal
-.  Nm smrt Cm run Ar HOST Ns ... -- Nm zypper Fl n Cm install Fl y Ar PACKAGE Ns ...
+.  Nm smrt Cm run Oo Ar HOST Ns ... -- Oc Nm zypper Fl n Cm install Fl y Ar PACKAGE Ns ...
 . Ed
 .\" }}}
 .\" list_bugs {{{
@@ -216,7 +216,7 @@ Not implemented yet.
 .It Ic list_packages Oo Fl w Oc Oo Fl p Ar PACKAGE Oc Ns ... Op Ar HOST Ns ...
 . Bd -literal
 .  Nm smrt Cm packages Oo Fl \-full Oc Oo Ar PACKAGE Ns ... Oc
-.  Nm smrt Cm hosts Fl \-packages Oo Ar HOST Ns ... Oc Oo -- Ar PACKAGE Ns ... Oc
+.  Nm smrt Cm hosts Fl \-packages Oo Ar HOST Ns ... -- Oc Oo Ar PACKAGE Ns ... Oc
 . Ed
 .\" }}}
 .\" list_sessions {{{
@@ -257,13 +257,13 @@ sockets
 .\" prepare {{{
 .It Ic prepare Ar HOST Ns Oo Li , Ns ... Oc Ns Oo Li ,force Oc Ns Oo Li ,installed Oc Ns Oo Li ,testing Oc
 . Bd -literal
-.  Nm smrt Cm run Ar HOST Ns ... -- Nm zypper Fl n Cm install Fl y Ar PACKAGE Ns ...
+.  Nm smrt Cm prepare Oo Fl \-force Oc Oo Fl \-installed Oc Op Ar HOST Ns ...
 . Ed
 .\" }}}
-.\" get {{{
+.\" put {{{
 .It Ic put Ar PATHNAME
 . Bd -literal
-.  Nm smrt Cm put Oo Ar HOST Ns ... Oc Li -- Ar SOURCE Ns ... Ar TARGET
+.  Nm smrt Cm put Oo Ar HOST Ns ... Li -- Oc Ar SOURCE Ns ... Ar TARGET
 . Ed
 .\" }}}
 .\" quit {{{
@@ -275,7 +275,7 @@ See
 .\" remove_host {{{
 .It Ic remove_host Ar HOST Ns Oo Li , Ns ... Oc
 . Bd -literal
-.  Nm smrt Cm detach Ar HOST Ns ...
+.  Nm smrt Cm detach Op Ar HOST Ns ...
 . Ed
 .\" }}}
 .\" report-bug {{{
@@ -287,7 +287,7 @@ See
 .\" run {{{
 .It Ic run Ar HOST Ns Oo Li , Ns ... Oc Ns Li , Ns Ar COMMAND
 . Bd -literal
-.  Nm smrt Cm run Ar HOST Ns ... -- Ar COMMAND
+.  Nm smrt Cm run Oo Ar HOST Ns ... -- Oc Ar COMMAND
 . Ed
 .\" }}}
 .\" save {{{
@@ -328,7 +328,7 @@ instead.
 . Pp
 No replacement, you can achieve similar functionality by using
 . Ev SMRT_CHATTY , SUMAXY_CHATTY , REPOSE_CHATTY
-variables.
+environment variables.
 . Bd -literal
 .  Nm export Ev SMRT_CHATTY Ns = Ns Ar PATTERN
 . Ed
@@ -431,25 +431,25 @@ No replacement, superceded by automated checks run in the BuildService.
 .\" testsuite_list {{{
 .It Ic testsuite_list Ar HOST
 . Bd -literal
-.  Nm smrt Cm tcf list Ar HOST Ns ...
+.  Nm smrt Cm tcf list Op Ar HOST Ns ...
 . Ed
 .\" }}}
 .\" testsuite_run {{{
 .It Ic testsuite_run Ar HOST Ns Oo Li , Ns No ... Oc Ns Li , Ns Ar TESTSUITE
 . Bd -literal
-.  Nm smrt Cm tcf run Ar HOST No ... -- Ar TESTSUITE
+.  Nm smrt Cm tcf run Oo Ar HOST No ... -- Oc Ar TESTSUITE
 . Ed
 .\" }}}
 .\" testsuite_submit {{{
 .It Ic testsuite_submit Ar HOST Ns Oo Li , Ns No ... Oc Ns Li , Ns Ar TESTSUITE
 . Bd -literal
-.  Nm smrt Cm tcf submit Ar HOST Ns ... -- Ar TESTSUITE
+.  Nm smrt Cm tcf submit Oo Ar HOST Ns ... -- Oc Ar TESTSUITE
 . Ed
 .\" }}}
 .\" uninstall {{{
 .It Ic uninstall Ar HOST Ns Oo Li , Ns No ... Oc Ns Li , Ns Ar PACKAGE Ns ...
 . Bd -literal
-.  Nm smrt Cm run Ar HOST Ns ... -- Nm zypper Fl n Cm remove Fl y Ar PACKAGE Ns ...
+.  Nm smrt Cm run Oo Ar HOST Ns ... -- Oc Nm zypper Fl n Cm remove Fl y Ar PACKAGE Ns ...
 . Ed
 .\" }}}
 .\" unlock {{{
@@ -460,7 +460,7 @@ Not implemented yet.
 .\" update {{{
 .It Ic update Ar HOST Ns Oo Li ,newpackage Oc Ns Oo Li ,noprepare Oc Ns Oo Li ,noscript Oc
 . Bd -literal
-.  Nm smrt Cm update Ar HOST Ns ...
+.  Nm smrt Cm update Op Ar HOST Ns ...
 . Ed
 .\" }}}
 .\" whoami {{{

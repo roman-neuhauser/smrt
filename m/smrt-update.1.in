@@ -21,13 +21,14 @@
 .\" DESCRIPTION {{{
 .Sh DESCRIPTION
 .Nm
-installs all relevant packages on given
+installs all relevant packages in given
 (or all attached)
 .Ar HOST Ns s.
-.Bl -tag -width "xxx"
-. It Ar HOST
-.  Oo Ar user Ns Li @ Oc Ns Ar hostname
-.El
+.
+This is a
+.Sy Logged command ,
+see
+.Xr smrt 1 .
 .\" }}}
 .
 .\" SEE ALSO {{{

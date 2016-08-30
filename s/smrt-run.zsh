@@ -21,7 +21,7 @@ declare -gr cmdname=${SMRT_CMDNAME-$0:t}
 declare -gr cmdhelp='
 
 usage: #c -h|--help
-usage: #c [HOST...] -- COMMAND
+usage: #c [HOST... --] COMMAND
 
 Run a command in attached hosts
 
@@ -54,7 +54,7 @@ function $cmdname-main # {{{
 
   (( $# )) || reject-misuse
 
-  check-preconditions $0
+  check-preconditions $cmdname
 
   o impl "$@"
 } # }}}
@@ -88,4 +88,4 @@ function impl # {{{
 
 . $preludedir/smrt.coda.zsh
 
-$cmdname-main "$@"
+o $cmdname-main "$@"

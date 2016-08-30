@@ -36,7 +36,7 @@ declare -gr preludedir="${SMRT_PRELUDEDIR:-@preludedir@}"
 
 . $preludedir/smrt.prelude.zsh || exit 2
 
-function $0:t # {{{
+function $cmdname-main # {{{
 {
   local opt
   local -i i=0
@@ -49,7 +49,7 @@ function $0:t # {{{
 
   (( $# == 0 )) || reject-misuse $1
 
-  check-preconditions $0
+  check-preconditions $cmdname
 
   o impl "$@"
 } # }}}
@@ -545,4 +545,4 @@ REPRODUCER_AUTOMATABLE: YES/NO
 
 . $preludedir/smrt.coda.zsh
 
-$0:t "$@"
+o $cmdname-main "$@"

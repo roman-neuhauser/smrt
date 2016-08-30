@@ -17,6 +17,7 @@ no hosts given, no hosts attached::
   $ smrt tcf list
   O find-cmd tcf
   o run-cmd /*/smrt-tcf list (glob)
+  o smrt-tcf-main list
   o assert-workdir smrt-tcf
   o do-list
   error: no hosts attached
@@ -27,6 +28,7 @@ some hosts given, no hosts attached::
   $ smrt tcf list foo
   O find-cmd tcf
   o run-cmd /*/smrt-tcf list foo (glob)
+  o smrt-tcf-main list foo
   o assert-workdir smrt-tcf
   o do-list foo
   smrt tcf: Unknown argument 'foo'

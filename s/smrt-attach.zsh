@@ -40,7 +40,7 @@ declare -gr preludedir="${SMRT_PRELUDEDIR:-@preludedir@}"
 
 . $preludedir/smrt.prelude.zsh || exit 2
 
-function $0:t # {{{
+function $cmdname-main # {{{
 {
   local opt arg
   local -i i=0
@@ -51,9 +51,10 @@ function $0:t # {{{
     esac
   done; shift $i
 
-  (( $# > 1 )) || reject-misuse
+  # at least one host, "--", at least one tag
+  (( $# >= 3 )) || reject-misuse
 
-  check-preconditions $0
+  check-preconditions $cmdname
 
   impl "$@"
 } # }}}
@@ -64,20 +65,24 @@ function impl # {{{
   local -a hosts; hosts=("$@[1,$((seppos - 1))]")
   local -a suite; suite=("$@[$((seppos + 1)),-1]")
 
+  (( $#hosts )) || reject-misuse
+  (( $#suite )) || reject-misuse
+
   local ctlpath=$config_controlpath
   o mkdir -p $ctlpath:h .connected
 
   local h=
   for h in $hosts; do
     o print -f 'Attaching %s for %s\n' $h "$suite"
+    o ssh -O check -o ControlPath=$ctlpath -q $h ||
     o ssh -MNf -o ControlPath=$ctlpath $h || {
       complain - "failed to attach $h"
       continue
     }
-    o redir -1 .connected/$h print -f '%s\n' -- $suite
+    o print >>| .connected/$h -f '%s\n' -- $suite
   done
 } # }}}
 
 . $preludedir/smrt.coda.zsh
 
-$0:t "$@"
+o $cmdname-main "$@"

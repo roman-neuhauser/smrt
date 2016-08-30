@@ -57,7 +57,7 @@ declare -gr preludedir="${SMRT_PRELUDEDIR:-@preludedir@}"
 
 . $preludedir/smrt.bs.zsh
 
-function $0:t # {{{
+function $cmdname-main # {{{
 {
   local opt arg
   local -i i=0
@@ -100,7 +100,7 @@ function $0:t # {{{
 
   (( $# == 2 )) || reject-misuse $3
 
-  check-preconditions $0
+  check-preconditions $cmdname
 
   : ${SMRT_ISSUER:=$config_assumed_issuer}
 
@@ -109,4 +109,4 @@ function $0:t # {{{
 
 . $preludedir/smrt.coda.zsh
 
-$0:t "$@"
+o $cmdname-main "$@"

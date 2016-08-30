@@ -26,6 +26,7 @@ no hosts attached, no hosts given::
 
   $ smrt terms gnome
   o run-cmd */smrt-terms gnome (glob)
+  o smrt-terms-main gnome
   o impl gnome
   error: no hosts attached
   [1]
@@ -38,6 +39,7 @@ some hosts attached, no hosts given::
 
   $ smrt terms gnome
   o run-cmd */smrt-terms gnome (glob)
+  o smrt-terms-main gnome
   o impl gnome
   o run-gnome root@rofl toor@snafu
   o zsh -f */smrt.terms.gnome.zsh root@rofl toor@snafu (glob)

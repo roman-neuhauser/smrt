@@ -21,7 +21,8 @@ declare -gr cmdname=${SMRT_CMDNAME-$0:t}
 declare -gr cmdhelp='
 
 usage: #c -h|--help
-usage: #c --packages [HOST...] [-- PACKAGE...]
+usage: #c [HOST...]
+usage: #c --packages [HOST... --] [PACKAGE...]
 
 Display information on attached hosts
 
@@ -55,7 +56,7 @@ function $cmdname-main # {{{
     esac
   done; shift $i
 
-  check-preconditions $0
+  check-preconditions $cmdname
 
   o $impl "$@"
 } # }}}
@@ -84,9 +85,15 @@ function list-hosts # {{{
 
 function list-packages # {{{
 {
+  local -a hosts suite
   local -i seppos="$@[(i)--]"
-  local -a hosts; hosts=("$@[1,$((seppos - 1))]")
-  local -a suite; suite=("$@[$((seppos + 1)),-1]")
+  if (( seppos > $# )); then
+    hosts=(.connected/*(N:t))
+    suite=("$@")
+  else
+    hosts=("$@[1,$((seppos - 1))]")
+    suite=($(awk '{print $4}' binaries | sort -u))
+  fi
 
   local host=
   for host in $hosts; do
@@ -107,4 +114,4 @@ function list-packages # {{{
 
 . $preludedir/smrt.coda.zsh
 
-$cmdname-main "$@"
+o $cmdname-main "$@"

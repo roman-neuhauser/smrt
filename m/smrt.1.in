@@ -94,6 +94,24 @@ Install current maintenance update
 . It Xr smrt-xml 1
 Display information gleaned from BuildService XML data
 .El
+.Pp
+.
+.Sy Logged commands
+(they are called out as such in their own man pages)
+contribute to
+.No per- Ns Ar HOST
+log files.
+.Pp
+.Sy Attached commands
+query or manipulate currently attached hosts.
+.\" }}}
+.
+.\" OPERANDS {{{
+.Sh OPERANDS
+.Bl -tag -width "xxx"
+.It Ar HOST
+. Oo Ar user Ns Li @ Oc Ns Ar hostname Ns Op Li : Ns Ar port
+.El
 .\" }}}
 .
 .\" TRACING {{{
@@ -192,6 +210,7 @@ so the above cannot use the simpler
 .
 .\" SEE ALSO {{{
 .Sh SEE ALSO
+.Xr parallel 1 ,
 .Xr repoq 1 ,
 .Xr repose 1 ,
 .Xr ssh 1 ,

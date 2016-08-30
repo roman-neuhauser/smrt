@@ -13,17 +13,32 @@
 .\" SYNOPSIS {{{
 .Sh SYNOPSIS
 .Nm
-.Fl h | \-help
+. Fl h | \-help
 .Nm
-.Op Ar HOST Ns ...
-.Li --
-.Ar COMMAND
+. Oo Ar HOST Ns ... Li -- Oc Ar COMMAND
 .\" SYNOPSIS }}}
 .
 .\" DESCRIPTION {{{
 .Sh DESCRIPTION
 .Nm
-executes a given command in given (or all attached) hosts.
+executes a given command in given
+(or all attached)
+.Ar HOST Ns s.
+.
+This is a
+.Sy Logged command ,
+see
+.Xr smrt 1 .
+.\" }}}
+.
+.\" OPERANDS {{{
+.Sh OPERANDS
+.Bl -tag -width "xxx"
+. It Ar HOST
+Attached host.
+. It Ar COMMAND
+Shell command to run.
+.El
 .\" }}}
 .
 .\" SEE ALSO {{{

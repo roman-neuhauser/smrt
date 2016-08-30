@@ -10,7 +10,7 @@ help::
 
   $ smrt put -h
   usage: smrt put -h|--help
-  usage: smrt put [HOST...] -- SOURCE... TARGET
+  usage: smrt put [HOST... --] SOURCE... TARGET
   
   Upload files and directories to attached hosts
   

@@ -84,7 +84,7 @@ invalid arguments::
 no configuration file::
 
   $ smrt adopt SUSE:Maintenance:1234:5678
-  smrt-fetch: missing or bungled configuration
+  smrt-adopt: missing or bungled configuration
   the 'bugzilla_url' directive is missing from your configuration files
   [1]
 
@@ -95,7 +95,7 @@ partial configuration file::
   > EOF
 
   $ smrt adopt SUSE:Maintenance:1234:5678
-  smrt-fetch: missing or bungled configuration
+  smrt-adopt: missing or bungled configuration
   the 'issuer_apiurls' directive is missing from your configuration files
   [1]
 

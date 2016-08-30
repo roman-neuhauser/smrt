@@ -30,12 +30,22 @@ and earmarks it for testing given
 .Bl -tag -width "xxx"
 . It Ar HOST
 .  Oo Ar user Ns Li @ Oc Ns Ar hostname
-. It Ar PRODUCT
-See
-.Sy Product names
-in
-.Xr repoq 1 .
 .El
+.\" }}}
+.
+.\" OPERANDS {{{
+.Sh OPERANDS
+.Bl -tag -width "PRODUCT"
+.It Ar HOST
+. Oo Ar user Ns Li @ Oc Ns Ar hostname Ns Op Li : Ns Ar port
+.Pp
+Anything your
+. Xr ssh 1
+can connect to non-interactively, without asking for passwords
+or other input.
+. No See Xr ssh-agent 1 , Xr ssh-copy-id 1 .
+.It Ar PRODUCT
+. No See Sy Product names No in Xr repoq 1 .
 .\" }}}
 .
 .\" SEE ALSO {{{

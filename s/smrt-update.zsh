@@ -22,7 +22,7 @@ declare -gr preludedir="${SMRT_PRELUDEDIR:-@preludedir@}"
 
 . $preludedir/smrt.prelude.zsh || exit 2
 
-function $0:t # {{{
+function $cmdname-main # {{{
 {
   local opt arg
   local -i i=0 norepo=0
@@ -34,7 +34,7 @@ function $0:t # {{{
     esac
   done; shift $i
 
-  check-preconditions $0
+  check-preconditions $cmdname
 
   local -r issue=${${(s.:.):-$(< slug)}[3]}
 
@@ -69,4 +69,4 @@ function addrepo # {{{
   o repose issue-add $@ -- .
 } # }}}
 
-$0:t "$@"
+o $cmdname-main "$@"

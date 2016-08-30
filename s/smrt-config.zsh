@@ -96,4 +96,4 @@ function do-show # {{{
 
 . $preludedir/smrt.coda.zsh
 
-$cmdname-main "$@"
+o $cmdname-main "$@"

@@ -21,9 +21,9 @@ declare -gr cmdname=${SMRT_CMDNAME-$0:t}
 declare -gr cmdhelp='
 
 usage: #c -h|--help
-usage: #c list HOST...
-usage: #c run HOST... -- SUITE
-usage: #c submit HOST... -- SUITE
+usage: #c list [HOST...]
+usage: #c run [HOST... --] SUITE
+usage: #c submit [HOST... --] SUITE
 
 Query and manipulate CTCS2 testsuites and results
 
@@ -128,4 +128,4 @@ function do-submit # {{{
 
 . $preludedir/smrt.coda.zsh
 
-$cmdname-main "$@"
+o $cmdname-main "$@"

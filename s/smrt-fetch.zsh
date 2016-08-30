@@ -49,7 +49,7 @@ declare -gr preludedir="${SMRT_PRELUDEDIR:-@preludedir@}"
 . $preludedir/smrt.hints.zsh
 . $preludedir/smrt.xml.zsh
 
-function $0:t # {{{
+function $cmdname-main # {{{
 {
   local -i adopt=0 push=0
   local opt arg
@@ -81,7 +81,7 @@ function $0:t # {{{
 
   (( $# < 3 )) || reject-misuse $3
 
-  o check-preconditions $0
+  o check-preconditions $cmdname
 
   local REPLY= rmprj
   o fetch-request-xml $mrid
@@ -428,4 +428,4 @@ function generate-bugs # {{{
 
 . $preludedir/smrt.coda.zsh
 
-$0:t "$@"
+o $cmdname-main "$@"

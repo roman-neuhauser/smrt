@@ -21,6 +21,7 @@ test::
   $ smrt testopia create bash
   O find-cmd testopia
   o run-cmd /*/smrt-testopia create bash (glob)
+  o smrt-testopia-main create bash
   o assert-config-vars smrt-testopia bugzilla_url testopia_url testopia_user testopia_pass
   o impl create bash
   o python3 /*/smrt.testopia.py create bash (glob)

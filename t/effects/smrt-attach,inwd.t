@@ -27,8 +27,11 @@ test happy path::
   lmao
 
   $ fake ssh <<\EOF
+  > #!/usr/bin/zsh -f
   > case $* in
-  > *\ omg) echo >&2 hiccups from ssh $@; exit 1 ;;
+  > (-O check *omg) exit 1 ;;
+  > (-O check *) exit 0 ;;
+  > (*) echo >&2 hiccups from ssh $@; exit 1 ;;
   > esac
   > EOF
 

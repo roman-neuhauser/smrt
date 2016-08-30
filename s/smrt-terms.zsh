@@ -63,7 +63,7 @@ function $cmdname-main # {{{
   *) reject-misuse $arg ;;
   esac
 
-  check-preconditions $0
+  check-preconditions $cmdname
 
   o impl $arg "$@"
 } # }}}
@@ -84,4 +84,4 @@ function run-gnome run-kde run-xterm # {{{
   o zsh -f $preludedir/smrt.terms.${0#run-}.zsh "$@"
 } # }}}
 
-$cmdname-main "$@"
+o $cmdname-main "$@"

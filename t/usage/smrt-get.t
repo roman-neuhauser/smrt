@@ -10,7 +10,7 @@ help::
 
   $ smrt get -h
   usage: smrt get -h|--help
-  usage: smrt get [HOST...] -- SOURCE...
+  usage: smrt get [HOST... --] SOURCE...
   
   Download files and directories from attached hosts
   

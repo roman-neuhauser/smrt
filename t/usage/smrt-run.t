@@ -10,7 +10,7 @@ help::
 
   $ smrt run -h
   usage: smrt run -h|--help
-  usage: smrt run [HOST...] -- COMMAND
+  usage: smrt run [HOST... --] COMMAND
   
   Run a command in attached hosts
   

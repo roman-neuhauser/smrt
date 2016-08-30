@@ -21,6 +21,7 @@ test::
   $ smrt testopia list bash
   O find-cmd testopia
   o run-cmd /*/smrt-testopia list bash (glob)
+  o smrt-testopia-main list bash
   o assert-config-vars smrt-testopia bugzilla_url testopia_url testopia_user testopia_pass
   o impl list bash
   o python3 /*/smrt.testopia.py list bash (glob)

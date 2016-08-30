@@ -21,7 +21,7 @@ declare -gr cmdname=${SMRT_CMDNAME-$0:t}
 declare -gr cmdhelp='
 
 usage: #c -h|--help
-usage: #c [HOST...] -- SOURCE...
+usage: #c [HOST... --] SOURCE...
 
 Download files and directories from attached hosts
 
@@ -63,7 +63,7 @@ function $cmdname-main # {{{
 
   (( $#suite )) || reject-misuse
 
-  check-preconditions $0
+  check-preconditions $cmdname
 
   (( $#hosts )) || hosts=(.connected/*(N:t))
   (( $#hosts )) || complain 1 "no hosts attached"

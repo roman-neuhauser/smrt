@@ -37,6 +37,7 @@ some hosts attached, no hosts given::
 
   $ smrt terms kde
   o run-cmd */smrt-terms kde (glob)
+  o smrt-terms-main kde
   o impl kde
   o run-kde root@rofl toor@snafu
   o zsh -f */smrt.terms.kde.zsh root@rofl toor@snafu (glob)

@@ -10,9 +10,9 @@ help::
 
   $ smrt tcf -h
   usage: smrt tcf -h|--help
-  usage: smrt tcf list HOST...
-  usage: smrt tcf run HOST... -- SUITE
-  usage: smrt tcf submit HOST... -- SUITE
+  usage: smrt tcf list [HOST...]
+  usage: smrt tcf run [HOST... --] SUITE
+  usage: smrt tcf submit [HOST... --] SUITE
   
   Query and manipulate CTCS2 testsuites and results
   

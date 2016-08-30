@@ -19,10 +19,10 @@
 . Op Ar HOST Ns ...
 .Nm
 . Cm run
-. Oo Ar HOST Ns ... Oc Li -- Ar SUITE
+. Oo Ar HOST Ns ... Li -- Oc Ar SUITE
 .Nm
 . Cm submit
-. Oo Ar HOST Ns ... Oc Li -- Ar SUITE
+. Oo Ar HOST Ns ... Li -- Oc Ar SUITE
 .\" SYNOPSIS }}}
 .
 .\" DESCRIPTION {{{
@@ -32,6 +32,13 @@ is used to list and run CTCS2 testsuites, and submit their results
 into a
 .Nm QADB .
 .
+This is a
+.Sy Logged command ,
+see
+.Xr smrt 1 .
+.\" }}}
+.
+.\" OPERANDS {{{
 .Bl -tag -width "xxx"
 .It Ar HOST
 . Oo Ar user Ns Li @ Oc Ns Ar hostname

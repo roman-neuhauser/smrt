@@ -28,6 +28,11 @@
 maintenance update from the repositories currently
 enabled in each
 .Ar HOST .
+.
+This is a
+.Sy Logged command ,
+see
+.Xr smrt 1 .
 .\" }}}
 .
 .\" OPTIONS {{{

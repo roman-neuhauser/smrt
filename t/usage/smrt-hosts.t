@@ -10,7 +10,8 @@ help::
 
   $ smrt hosts -h
   usage: smrt hosts -h|--help
-  usage: smrt hosts --packages [HOST...] [-- PACKAGE...]
+  usage: smrt hosts [HOST...]
+  usage: smrt hosts --packages [HOST... --] [PACKAGE...]
   
   Display information on attached hosts
   

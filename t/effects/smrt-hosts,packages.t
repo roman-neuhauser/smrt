@@ -9,15 +9,21 @@ setup::
   $ reify-fixture $slug
   $ cd $slug
 
-no hosts given, no hosts attached::
+no hosts or packages given, no hosts attached::
 
   $ smrt hosts --packages
   error: no hosts attached
   [1]
 
-some hosts given, no hosts attached::
+some packages given, no hosts attached::
 
   $ smrt hosts --packages foo
+  error: no hosts attached
+  [1]
+
+some hosts given, no hosts attached::
+
+  $ smrt hosts --packages foo --
   smrt hosts: Unknown argument 'foo'
   Run 'smrt hosts -h' for usage instructions
   [1]

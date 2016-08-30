@@ -42,7 +42,22 @@ unknown option::
 
 missing argument::
 
+  $ smrt attach
+  smrt attach: Missing argument
+  Run 'smrt attach -h' for usage instructions
+  [1]
+
   $ smrt attach fubar
+  smrt attach: Missing argument
+  Run 'smrt attach -h' for usage instructions
+  [1]
+
+  $ smrt attach -- fubar
+  smrt attach: Missing argument
+  Run 'smrt attach -h' for usage instructions
+  [1]
+
+  $ smrt attach fubar --
   smrt attach: Missing argument
   Run 'smrt attach -h' for usage instructions
   [1]
