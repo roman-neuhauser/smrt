@@ -71,7 +71,7 @@ make install DESTDIR=%{buildroot}
 %files
 %defattr(-,root,root)
 %dir %{_datadir}/%{name}
-%config %{_sysconfdir}/smrt
+%config(noreplace) %{_sysconfdir}/smrt
 %{_bindir}/smrt
 %{_bindir}/smrt-*
 %{_datadir}/%{name}/smrt.*
