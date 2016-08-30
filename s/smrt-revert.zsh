@@ -64,7 +64,7 @@ function impl # {{{
   o run-in-hosts \
     $hosts \
     -- \
-    "pkgs=\$(rpm -q --qf '%{NAME}\n' $pkgs | sed '/is not installed/d'); if test x = \"x\$pkgs\"; then echo nothing to do; else zypper -n in --oldpackage --force-resolution -y -l \$pkgs; fi"
+    "rpm -q --qf '%{NAME}\n' $pkgs | grep -v 'is not installed' | xargs -r zypper -n in --force --force-resolution -y -l --oldpackage"
 } # }}}
 
 function removerepo # {{{

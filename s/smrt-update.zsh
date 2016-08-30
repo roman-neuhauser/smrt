@@ -60,7 +60,7 @@ function impl # {{{
   o run-in-hosts \
     $@ \
     -- \
-    "zypper patches | awk -F '|' '/:p=$issue\\>/ { print \$2; }' | while read p; do zypper -n install -l -y -t patch \$p; done"
+    "zypper patches | awk -F '|' '/:p=$issue\\>/ { print \$2; }' | xargs -r zypper -n install -l -y -t patch"
 } # }}}
 
 function addrepo # {{{
