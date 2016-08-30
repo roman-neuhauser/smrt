@@ -1,7 +1,9 @@
 # vim: ft=python sw=2 sts=2 et fdm=marker cms=\ #\ %s
 
+import re
 import subprocess
 import tempfile
+import xml.sax.saxutils as saxutils
 import xmlrpc.client as xmlrpclib
 
 class Display(object):
@@ -36,12 +38,12 @@ class Display(object):
     dsp.println('Testcase status: %s' % (dsp.stati[case_status_id]))
     dsp.println('Testcase requirements: %s' % (requirement))
     if setup:
-      dsp.println('Testcase setup:\n%s' % unbr(setup))
+      dsp.println('Testcase setup:\n%s' % unhtmlize(setup))
     if breakdown:
-      dsp.println('Testcase breakdown:\n%s' % unbr(breakdown))
-    dsp.println('Testcase actions:\n%s' % unbr(action))
+      dsp.println('Testcase breakdown:\n%s' % unhtmlize(breakdown))
+    dsp.println('Testcase actions:\n%s' % unhtmlize(action))
     if effect:
-      dsp.println('Testcase effect:\n%s' % unbr(effect))
+      dsp.println('Testcase effect:\n%s' % unhtmlize(effect))
 
 
 class BugzillaRPC(object):
@@ -62,13 +64,23 @@ class BugzillaRPC(object):
     return getattr(self.proxy, service)(*query)
 
 
-def unbr(s):
-  return str(s).replace('<br>', '\n')
+def unhtmlize(s):
+  s = str(s) \
+    .replace('<br>', '\n') \
+    .replace('</span>', '\n') \
+    .replace('</div>', '\n') \
+    .replace('&nbsp;', ' ')
 
-def escape_html(text):
-  entities = {'|br|':'<br>'}
+  s = re.sub('<[^>]*>', '', s)
+
   try:
-    return saxutils.escape(text, entities)
+      return saxutils.unescape(s)
+  except Exception:
+      return text
+
+def htmlize(text):
+  try:
+    return saxutils.escape(text, {'|br|':'<br>'})
   except Exception:
     return text
 
@@ -164,7 +176,7 @@ class TestopiaFrontend(object):
       elif key.startswith('text/'):
         key = key.replace('text/', '')
 
-      values[key] = escape_html(val.strip())
+      values[key] = htmlize(val.strip())
 
     tc = dict(
       status = 2,
