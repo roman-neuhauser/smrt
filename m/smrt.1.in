@@ -67,6 +67,8 @@ Query and manipulate smrt configuration file
 Disconnect attached refhost(s)
 . It Xr smrt-fetch 1
 Download metadata for a maintenance request
+. It Xr smrt-get 1
+Download files and directories from attached hosts
 . It Xr smrt-hosts 1
 Display information on attached hosts
 . It Xr smrt-mklog 1
@@ -75,14 +77,20 @@ Create MTUI-compatible testreport
 Display version information for packages under test
 . It Xr smrt-push 1
 Publish metadata for a maintenance request
+. It Xr smrt-put 1
+Upload files and directories to attached hosts
 . It Xr smrt-revert 1
 Downgrade relevant packages to latest released versions
-. It Xr smrt-update 1
-Install current maintenance update
+. It Xr smrt-run 1
+Run a command in attached hosts
 . It Xr smrt-tcf 1
 Query and manipulate CTCS2 testsuites and results
+. It Xr smrt-terms 1
+Open terminals for attached hosts
 . It Xr smrt-testopia 1
 Query and manipulate Testopia testcases
+. It Xr smrt-update 1
+Install current maintenance update
 . It Xr smrt-xml 1
 Display information gleaned from BuildService XML data
 .El
