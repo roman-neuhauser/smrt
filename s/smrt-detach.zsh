@@ -54,16 +54,22 @@ function $cmdname-main # {{{
 
   check-preconditions $cmdname
 
-  :; (( $# )) \
-  || set -- .connected/*(:t)
+  local -a hosts; hosts=("$@")
+  (( $#hosts )) || hosts=(.connected/*(N:t))
+  (( $#hosts )) || complain 1 "no hosts attached"
 
+  local -a this rhosts
   local h=
-  for h in "$@"; do
-    :; [[ -e .connected/$h ]] \
+  for h in $hosts; do
+    this=(.connected/*$h*(N:t))
+    :; (( $#this )) \
     || complain 1 "$h is not attached"
-  done
+    rhosts+=($this)
+  done; hosts=($rhosts)
 
-  o $impl "$@"
+  (( $#hosts )) || complain 1 "no hosts attached"
+
+  o $impl $hosts
 } # }}}
 
 function impl-default # {{{

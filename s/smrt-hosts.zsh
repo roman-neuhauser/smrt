@@ -63,23 +63,25 @@ function $cmdname-main # {{{
 
 function list-hosts # {{{
 {
-  local -i seppos="$@[(i)--]"
-  local -a hosts; hosts=("$@[1,$((seppos - 1))]")
-
-  local host=
-  for host in $hosts; do
-    :; [[ -f .connected/$host ]] \
-    || reject-misuse $host
-  done
-
+  local -a hosts; hosts=("$@")
   (( $#hosts )) || hosts=(.connected/*(N:t))
+
+  local -a this rhosts
+  local h=
+  for h in $hosts; do
+    this=(.connected/*$h*(N:t))
+    :; (( $#this )) \
+    || complain 1 "$h is not attached"
+    rhosts+=($this)
+  done; hosts=($rhosts)
+
   (( $#hosts )) || return 0
 
-  local f= host= tags=
-  for host in $hosts; do
-    f=.connected/$host
+  local f= tags=
+  for h in $hosts; do
+    f=.connected/$h
     tags="${(pj: :)${(f)$(<$f)}}"
-    print -f '%-28s %s\n' $host $tags
+    print -f '%-28s %s\n' $h $tags
   done
 } # }}}
 
@@ -87,24 +89,25 @@ function list-packages # {{{
 {
   local -a hosts suite
   local -i seppos="$@[(i)--]"
-  if (( seppos > $# )); then
-    hosts=(.connected/*(N:t))
-    suite=("$@")
-  else
+  suite=("$@")
+  if (( seppos <= $# )); then
     hosts=("$@[1,$((seppos - 1))]")
     suite=($(awk '{print $4}' binaries | sort -u))
   fi
-
-  local host=
-  for host in $hosts; do
-    :; [[ -f .connected/$host ]] \
-    || reject-misuse $host
-  done
-
   (( $#hosts )) || hosts=(.connected/*(N:t))
   (( $#hosts )) || complain 1 "no hosts attached"
-
   (( $#suite )) || suite=($(cut -d ' ' -f 2 sources | sort -u))
+
+  local -a this rhosts
+  local h=
+  for h in $hosts; do
+    this=(.connected/*$h*(N:t))
+    :; (( $#this )) \
+    || complain 1 "$h is not attached"
+    rhosts+=($this)
+  done; hosts=($rhosts)
+
+  (( $#hosts )) || complain 1 "no hosts attached"
 
   o run-in-hosts \
     $hosts \

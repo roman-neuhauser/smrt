@@ -76,6 +76,17 @@ function impl # {{{
   (( $#hosts )) || hosts=(.connected/*(N:t))
   (( $#hosts )) || complain 1 "no hosts attached"
 
+  local -a this rhosts
+  local h=
+  for h in $hosts; do
+    this=(.connected/*$h*(N:t))
+    :; (( $#this )) \
+    || complain 1 "$h is not attached"
+    rhosts+=($this)
+  done; hosts=($rhosts)
+
+  (( $#hosts )) || complain 1 "no hosts attached"
+
   o ${$(whence smrt-terms-$impl):-run-$impl} $hosts
 } # }}}
 

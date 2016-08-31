@@ -53,27 +53,31 @@ function $cmdname-main # {{{
     esac
   done; shift $i
 
-  local -i seppos="$@[(i)--]"
-  local -a hosts suite
-  if (( $seppos <= $# )); then
-    hosts=("$@[1,$((seppos - 1))]")
-    suite=("$@[$((seppos + 1)),-1]")
-  else
-    suite=("$@")
-  fi
-
-  (( $#suite )) || reject-misuse
+  (( $# )) || reject-misuse
 
   check-preconditions $cmdname
 
+  local -i seppos="$@[(i)--]"
+  local -a hosts suite
+  suite=("$@")
+  if (( seppos <= $# )); then
+    hosts=("$@[1,$((seppos - 1))]")
+    suite=("$@[$((seppos + 1)),-1]")
+  fi
   (( $#hosts )) || hosts=(.connected/*(N:t))
   (( $#hosts )) || complain 1 "no hosts attached"
+  (( $#suite )) || complain 1 "no command given"
 
+  local -a this rhosts
   local h=
   for h in $hosts; do
-    :; [[ -f .connected/$h ]] \
-    || reject-misuse $h
-  done
+    this=(.connected/*$h*(N:t))
+    :; (( $#this )) \
+    || complain 1 "$h is not attached"
+    rhosts+=($this)
+  done; hosts=($rhosts)
+
+  (( $#hosts )) || complain 1 "no hosts attached"
 
   o impl $hosts -- $suite
 } # }}}

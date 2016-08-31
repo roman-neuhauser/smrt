@@ -112,6 +112,16 @@ query or manipulate currently attached hosts.
 .It Ar HOST
 . Oo Ar user Ns Li @ Oc Ns Ar hostname Ns Op Li : Ns Ar port
 .El
+.Pp
+. Sy Attached commands
+accept any
+.Em substrings
+of currently attached hosts.
+Usually it's enough to give
+.Qq Li \&.
+or
+.Qq Li @
+to use all attached hosts.
 .\" }}}
 .
 .\" TRACING {{{

@@ -31,6 +31,5 @@ some hosts given, no hosts attached::
   o smrt-tcf-main list foo
   o assert-workdir smrt-tcf
   o do-list foo
-  smrt tcf: Unknown argument 'foo'
-  Run 'smrt tcf -h' for usage instructions
+  error: foo is not attached
   [1]

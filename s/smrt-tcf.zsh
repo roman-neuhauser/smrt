@@ -69,11 +69,17 @@ function do-list # {{{
   local -a hosts; hosts=("$@")
   (( $#hosts )) || hosts=(.connected/*(N:t))
   (( $#hosts )) || complain 1 "no hosts attached"
+
+  local -a this rhosts
   local h=
   for h in $hosts; do
-    :; [[ -e .connected/$h ]] \
-    || reject-misuse $h
-  done
+    this=(.connected/*$h*(N:t))
+    :; (( $#this )) \
+    || complain 1 "$h is not attached"
+    rhosts+=($this)
+  done; hosts=($rhosts)
+
+  (( $#hosts )) || complain 1 "no hosts attached"
 
   o run-in-hosts $hosts -- "ls /usr/share/qa/tools/*-run"
 } # }}}
@@ -81,18 +87,27 @@ function do-list # {{{
 function do-run # {{{
 {
   local -i seppos="$@[(i)--]"
-  local -a hosts; hosts=("$@[1,$((seppos - 1))]")
-  local -a suite; suite=("$@[$((seppos + 1)),-1]")
-
+  local -a hosts suite
+  if (( seppos <= $# )); then
+    suite=("$@[$((seppos + 1)),-1]")
+    hosts=("$@[1,$((seppos - 1))]")
+  else
+    suite=("$@")
+  fi
   (( $#hosts )) || hosts=(.connected/*(N:t))
   (( $#hosts )) || complain 1 "no hosts attached"
+  (( $#suite )) || complain 1 "no command given"
+
+  local -a this rhosts
   local h=
   for h in $hosts; do
-    :; [[ -e .connected/$h ]] \
-    || reject-misuse $h
-  done
-  (( $#suite == 1 )) || reject-misuse ${suite[2]-}
+    this=(.connected/*$h*(N:t))
+    :; (( $#this )) \
+    || complain 1 "$h is not attached"
+    rhosts+=($this)
+  done; hosts=($rhosts)
 
+  (( $#hosts )) || complain 1 "no hosts attached"
   local id=$(< slug)
 
   o run-in-hosts $hosts -- \

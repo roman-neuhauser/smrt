@@ -24,6 +24,5 @@ some packages given, no hosts attached::
 some hosts given, no hosts attached::
 
   $ smrt hosts --packages foo --
-  smrt hosts: Unknown argument 'foo'
-  Run 'smrt hosts -h' for usage instructions
+  error: foo is not attached
   [1]

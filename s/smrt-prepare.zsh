@@ -42,14 +42,18 @@ function $cmdname-main # {{{
   local -r issue=${${(s.:.):-$(< slug)}[3]}
 
   local -a hosts; hosts=("$@")
+  (( $#hosts )) || hosts=(.connected/*(N:t))
+  (( $#hosts )) || complain 1 "no hosts attached"
 
+  local -a this rhosts
   local h=
   for h in $hosts; do
-    :; [[ -f .connected/$h ]] \
+    this=(.connected/*$h*(N:t))
+    :; (( $#this )) \
     || complain 1 "$h is not attached"
-  done
+    rhosts+=($this)
+  done; hosts=($rhosts)
 
-  (( $#hosts )) || hosts=(.connected/*(N:t))
   (( $#hosts )) || complain 1 "no hosts attached"
 
   local pkgs="$(awk '{print $4}' binaries | sort -u)"

@@ -63,21 +63,24 @@ function impl # {{{
 {
   local -i seppos="$@[(i)--]"
   local -a hosts suite
+  suite=("$@")
   if (( seppos <= $# )); then
-    hosts=("$@[1,$((seppos - 1))]")
     suite=("$@[$((seppos + 1)),-1]")
-  else
-    suite=("$@")
+    hosts=("$@[1,$((seppos - 1))]")
   fi
+  (( $#hosts )) || hosts=(.connected/*(N:t))
+  (( $#hosts )) || complain 1 "no hosts attached"
   (( $#suite )) || complain 1 "no command given"
 
-  local host=
-  for host in $hosts; do
-    :; [[ -f .connected/$host ]] \
-    || reject-misuse $host
-  done
+  local -a this rhosts
+  local h=
+  for h in $hosts; do
+    this=(.connected/*$h*(N:t))
+    :; (( $#this )) \
+    || complain 1 "$h is not attached"
+    rhosts+=($this)
+  done; hosts=($rhosts)
 
-  (( $#hosts )) || hosts=(.connected/*(N:t))
   (( $#hosts )) || complain 1 "no hosts attached"
 
   o run-in-hosts \

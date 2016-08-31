@@ -20,6 +20,5 @@ no hosts given, no hosts attached::
 some hosts given, no hosts attached::
 
   $ smrt tcf list foo
-  smrt tcf: Unknown argument 'foo'
-  Run 'smrt tcf -h' for usage instructions
+  error: foo is not attached
   [1]
