@@ -44,6 +44,7 @@ commands += smrt-packages
 commands += smrt-prepare
 commands += smrt-push
 commands += smrt-put
+commands += smrt-repose
 commands += smrt-revert
 commands += smrt-run
 commands += smrt-tcf

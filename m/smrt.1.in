@@ -79,6 +79,8 @@ Display version information for packages under test
 Publish metadata for a maintenance request
 . It Xr smrt-put 1
 Upload files and directories to attached hosts
+. It Xr smrt-repose 1
+Use repose on attached hosts
 . It Xr smrt-revert 1
 Downgrade relevant packages to latest released versions
 . It Xr smrt-run 1

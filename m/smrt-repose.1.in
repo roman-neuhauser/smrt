@@ -1,0 +1,66 @@
+.\" vim: tw=72 fdm=marker cms=.\\"\ %s
+.
+.\" FRONT MATTER {{{
+.Dd Aug 15, 2016
+.Os
+.Dt SMRT-REPOSE 1
+.
+.Sh NAME
+.Nm smrt\ repose
+.Nd Use repose on attached hosts
+.\" FRONT MATTER }}}
+.
+.\" SYNOPSIS {{{
+.Sh SYNOPSIS
+.Nm
+. Fl h | \-help
+.Nm
+. Ar COMMAND
+. Op Ar HOST Ns ... Li --
+. No ...
+.\" SYNOPSIS }}}
+.
+.\" DESCRIPTION {{{
+.Sh DESCRIPTION
+.Nm
+is a convenience used to run a given
+.Xr repose 1
+command with given or all attached hosts
+plus any other arguments.
+.Pp
+Note that argument handling in
+.Nm
+differs from that of
+.Xr repose 1 :
+.Bd -literal -offset "xx"
+. Nm smrt Cm repose Cm CMD Ar THING Ns ...
+.Ed
+.Pp
+is treated as
+.Bd -literal -offset "xx"
+. Nm repose Cm CMD Ar ALLHOSTS Li -- Ar THING Ns ...
+.Ed
+.Pp
+To treat
+.Ar THING
+as a
+.Ar HOST ,
+use
+.Bd -literal -offset "xx"
+. Nm smrt Cm repose Cm CMD Ar THING Ns ... Li -- Ns
+.Ed
+.\" }}}
+.
+.\" SEE ALSO {{{
+.Sh SEE ALSO
+.Xr repose 1 ,
+.Xr smrt-attach 1 ,
+.Xr smrt-hosts 1 .
+.\" }}}
+.
+.\" SMRT {{{
+.Sh SMRT
+.Nm
+is part of
+.Xr smrt 1 .
+.\" }}}

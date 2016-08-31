@@ -341,8 +341,8 @@ in
 .\" set_repo {{{
 .It Ic set_repo Ar KIND
 . Bd -literal
-.  Nm repose Cm issue-add No .
-.  Nm repose Cm issue-rm No $(< slug)
+.  Nm smrt Cm repose Cm issue-add No .
+.  Nm smrt Cm repose Cm issue-rm No $(< slug)
 . Ed
 .\" }}}
 .\" set_session_name {{{

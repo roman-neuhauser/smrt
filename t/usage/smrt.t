@@ -35,6 +35,7 @@ help::
       prepare           Prepare hosts for current maintenance update
       push              Publish metadata for a maintenance request
       put               Upload files and directories to attached hosts
+      repose            Use repose on attached hosts
       revert            Downgrade relevant packages to latest released versions
       run               Run a command in attached hosts
       tcf               Query and manipulate CTCS2 testsuites and results
@@ -89,6 +90,7 @@ outside a testreport::
       prepare           Prepare hosts for current maintenance update
       push              Publish metadata for a maintenance request
       put               Upload files and directories to attached hosts
+      repose            Use repose on attached hosts
       revert            Downgrade relevant packages to latest released versions
       run               Run a command in attached hosts
       tcf               Query and manipulate CTCS2 testsuites and results
@@ -132,6 +134,7 @@ inside a testreport::
       prepare           Prepare hosts for current maintenance update
       push              Publish metadata for a maintenance request
       put               Upload files and directories to attached hosts
+      repose            Use repose on attached hosts
       revert            Downgrade relevant packages to latest released versions
       run               Run a command in attached hosts
       tcf               Query and manipulate CTCS2 testsuites and results
