@@ -132,13 +132,17 @@ function do-submit # {{{
 
   local id=$(< slug)
 
+  zmodload zsh/datetime
+  local now=
+  TZ=UTC strftime -s now "%FT%T%z" $EPOCHSECONDS
+
   o run-in-hosts $hosts -- \
     /usr/share/qa/tools/remote_qa_db_report.pl \
     -b \
     -t patch:$id \
     -T "$USERNAME" \
     -f /var/log/qa/$id \
-    -c "testing ${suite/%-run} on $id on $(date --utc --iso-8601=seconds)"
+    -c "testing ${suite/%-run} on $id on $now"
 } # }}}
 
 . $preludedir/smrt.coda.zsh
