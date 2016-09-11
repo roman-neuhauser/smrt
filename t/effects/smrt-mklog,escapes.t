@@ -15,7 +15,7 @@ test::
 
   $ smrt mklog
 
-  $ sed -n '/^additional info/,/^\.\.\.$/{s/\t/  /g; p;}' log
+  $ sed -n '/^additional info/,/^\.\.\.$/{s/'$'\t''/  /g; p;}' log
   additional info from L3:
   
     Incident ID:        45371
