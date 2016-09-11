@@ -1,4 +1,4 @@
-#!/usr/bin/zsh -f
+#!@ZSH@ -f
 # vim: ft=zsh sw=2 sts=2 et fdm=marker cms=\ #\ %s
 
 # Copyright (C) 2016 SUSE LLC

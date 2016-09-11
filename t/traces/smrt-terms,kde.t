@@ -20,8 +20,7 @@ setup::
   > 'sleep%*'
   > )
 
-  $ fake qdbus <<\EOF
-  > #!/usr/bin/zsh -f
+  $ fake -f qdbus <<\EOF
   > if [[ ${(P)#} == newSession ]]; then print $RANDOM; fi
   > EOF
 

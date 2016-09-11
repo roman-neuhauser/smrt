@@ -26,8 +26,7 @@ test happy path::
   rofl
   lmao
 
-  $ fake ssh <<\EOF
-  > #!/usr/bin/zsh -f
+  $ fake -f ssh <<\EOF
   > case $* in
   > (-O check *omg) exit 1 ;;
   > (-O check *) exit 0 ;;

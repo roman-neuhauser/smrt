@@ -1,4 +1,4 @@
-#!/usr/bin/zsh -f
+#!@ZSH@ -f
 # vim: ft=zsh sw=2 sts=2 et fdm=marker cms=\ #\ %s
 
 declare -gr cmdname=${SMRT_CMDNAME-$0:t}

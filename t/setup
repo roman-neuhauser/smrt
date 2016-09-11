@@ -70,9 +70,19 @@ function reify-fixture # {{{
 
 function fake # {{{
 {
+  local opts=
+  if [[ "$1" == -* ]]; then
+    opts=$1
+    shift
+  fi
   local cmd=$HOME/.bin/$1
   shift
   mkdir -p $cmd:h
-  cat > $cmd
+  {
+    print -f "%s\n" \
+      "#!${ZSH:-/usr/bin/env zsh}" \
+      ${opts:+"set $opts"}
+    cat
+  } > $cmd
   chmod u+x $cmd
 } # }}}

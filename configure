@@ -1,5 +1,28 @@
 #!/bin/sh
 
+findtool() # {{{
+{
+  local val= varval= var="$1"; shift
+  eval "varval=\"\$$var\""
+  if test -n "$varval"; then
+    val=$(which $varval 2>/dev/null || :)
+  fi
+  while test -z "$val" && test "${1+set}" = set; do
+    test -z "$1" ||
+      val=$(which "$1" 2>/dev/null || :)
+    shift
+  done
+  test -n "$val" || {
+    echo >&2 "not found: $var"
+    exit 1
+  }
+  test -x "$val" || {
+    echo >&2 "not executable: $var ($val)"
+    exit 1
+  }
+  eval "$var=\"\$val\""
+} # }}}
+
 populate() # {{{
 {
   sed \
@@ -12,6 +35,8 @@ populate() # {{{
     -e "s@preludedir@$preludedirg" \
     -e "s@runstatedir@$runstatedirg" \
     -e "s@sysconfdir@$sysconfdirg" \
+    -e "s@HAVEOPT_SH@$HAVEOPT_SHg" \
+    -e "s@ZSH@$ZSHg" \
     $1 \
   > $2
 } # }}}
@@ -51,6 +76,12 @@ for a in "$@"; do
     sysconfdir="${a#*=}"
     sysconfdir_set=1
   ;;
+  HAVEOPT_SH=*)
+    HAVEOPT_SH="${a#*=}"
+  ;;
+  ZSH=*)
+    ZSH="${a#*=}"
+  ;;
   esac
 done
 
@@ -61,5 +92,10 @@ fi
 if test "$prefix" = /usr/local && test $mandir_set = 0; then
   mandir=$prefix/man
 fi
+
+findtool HAVEOPT_SH haveopt.sh
+findtool SVN svn
+findtool SVNADMIN svnadmin
+findtool ZSH zsh
 
 populate $rootdir/GNUmakefile.in GNUmakefile

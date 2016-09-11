@@ -16,8 +16,7 @@ setup::
 
 failure in some hosts::
 
-  $ fake ssh <<\EOF
-  > #!/usr/bin/zsh -efu
+  $ fake -efu ssh <<\EOF
   > while getopts o: o; do
   >   :
   > done; shift $((OPTIND-1))
@@ -48,8 +47,7 @@ failure in some hosts::
 
 failure everywhere::
 
-  $ fake ssh <<\EOF
-  > #!/usr/bin/zsh -efu
+  $ fake -efu ssh <<\EOF
   > echo >&2 "houston, we've got problem!"
   > exit 1
   > EOF
@@ -75,8 +73,7 @@ failure everywhere::
 
 happy path::
 
-  $ fake ssh <<\EOF
-  > #!/usr/bin/zsh -efu
+  $ fake -efu ssh <<\EOF
   > while getopts o: o; do
   >   :
   > done; shift $((OPTIND)) # also hostname

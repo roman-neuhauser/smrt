@@ -10,8 +10,7 @@ setup::
   >   'parallel%*'
   > )
 
-  $ fake scp <<\EOF
-  > #!/usr/bin/zsh -f
+  $ fake -f scp <<\EOF
   > while getopts pro: o; do :; done; shift $((OPTIND - 1))
   > print -u 2 "${(@q)@}"
   > EOF

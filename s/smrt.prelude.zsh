@@ -27,7 +27,7 @@ declare -Tgx SMRT_DRYRUN smrt_dryrun \|
 
 declare -gr logfd=2
 
-. haveopt.sh
+. @HAVEOPT_SH@
 
 declare -gx SMRT_ISSUER
 

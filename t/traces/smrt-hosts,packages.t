@@ -10,8 +10,7 @@ setup::
   $ cd $slug
   $ mkdir .connected
   $ smrt_chatty+=('(log-output|print|run-in-hosts|ssh|cat|true)%*')
-  $ fake ssh <<\EOF
-  > #!/usr/bin/zsh -f
+  $ fake -f ssh <<\EOF
   > print -u 1 -- fake-ssh some output from $3
   > print -u 2 -- fake-ssh some error from $3
   > exit 41

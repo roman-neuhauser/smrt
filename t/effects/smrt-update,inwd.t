@@ -8,8 +8,7 @@ setup::
   $ slug=SUSE:Maintenance:1302:87808
   $ reify-fixture $slug
 
-  $ fake ssh <<\EOF
-  > #!/usr/bin/zsh -f
+  $ fake -f ssh <<\EOF
   > while getopts qo: o; do
   >   case $o in
   >   q) ;;

@@ -11,6 +11,9 @@ sysconfdir  = @sysconfdir@
 
 preludedir  = @preludedir@
 
+HAVEOPT_SH  = @HAVEOPT_SH@
+ZSH         = @ZSH@
+
 CRAM = cram
 CRAMFLAGS =
 INSTALL = install
@@ -102,6 +105,8 @@ define subst_vars
 		-e 's![@]sysconfdir[@]!$(sysconfdir)!g' \
 		-e 's![@]preludedir[@]!$(preludedir)!g' \
 		-e 's![@]controlpathdir[@]!$(controlpathdir)!g' \
+		-e "s![@]HAVEOPT_SH[@]!$(HAVEOPT_SH)!g" \
+		-e "s![@]ZSH[@]!$(ZSH)!g" \
 		< $< > $@
 	chmod 0755 $@
 endef
@@ -116,7 +121,7 @@ $(htmlfiles): %.html: %.rst
 
 .PHONY: check
 check: $(tests) | all
-	env -i PATH="$$PATH" TESTROOT=$(testroot) BUILDDIR="$$PWD" $(CRAM) --shell=zsh $(CRAMFLAGS) $^
+	env -i PATH="$$PATH" TESTROOT=$(testroot) BUILDDIR="$$PWD" ZSH="$(ZSH)" $(CRAM) --shell=zsh $(CRAMFLAGS) $^
 
 
 .PHONY: clean
