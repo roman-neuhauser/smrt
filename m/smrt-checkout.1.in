@@ -36,7 +36,7 @@ from the configured
 .Sh OPERANDS
 .Bl -tag -width "xxx"
 .It Ar SLUG
-. Ar ISSUER Ns Li :Maintenance: Ns Ar ISSUE Ns Li : Ns Ar MRID Ns .
+. No See Sx OPERANDS No in Xr smrt 1 .
 .It Ar DEST
 Destination directory.
 If the path exists it must be an empty directory.

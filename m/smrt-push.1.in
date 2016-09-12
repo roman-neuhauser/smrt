@@ -22,6 +22,9 @@
 commits files into the testreport repository at
 .Sy testreport_repository
 .Po see Xr smrt 5 Pc .
+.Pp
+This command requires a
+.Sy Testreport directory .
 .\" }}}
 .
 .\" SEE ALSO {{{

@@ -21,9 +21,10 @@
 .\" DESCRIPTION {{{
 .Sh DESCRIPTION
 .Nm
-executes a given command in given
-(or all attached)
-.Ar HOST Ns s.
+executes a given command in given (or all) attached hosts.
+.Pp
+This command requires a
+.Sy Testreport directory .
 .
 This is a
 .Sy Logged command ,
@@ -35,7 +36,7 @@ see
 .Sh OPERANDS
 .Bl -tag -width "xxx"
 . It Ar HOST
-Attached host.
+. No See Sx OPERANDS No in Xr smrt 1 .
 . It Ar COMMAND
 Shell command to run.
 .El

@@ -16,7 +16,7 @@
 . Fl h | \-help
 .Nm
 . Op Fl \-full
-. Op Ar PKG Ns ...
+. Op Ar PACKAGE Ns ...
 .\" SYNOPSIS }}}
 .
 .\" DESCRIPTION {{{
@@ -26,6 +26,9 @@ is used to display information about packages updated in
 a maintenance update.  Its output is a tabular list of all
 binary packages released in a maintenance update,
 each line has two columns: package name and version-dash-release.
+.Pp
+This command requires a
+.Sy Testreport directory .
 .\" }}}
 .
 .\" OPTIONS {{{
@@ -40,6 +43,14 @@ Display this manual page.
 Display also architectures, project names.
 Each line has four columns: package name / version-dash-release,
 architecture and project.
+.\" }}}
+.
+.\" OPERANDS {{{
+.Sh OPERANDS
+.Bl -tag -width "xxx"
+. It Ar PACKAGE
+Name of a package to report on.
+.El
 .\" }}}
 .
 .\" SEE ALSO {{{

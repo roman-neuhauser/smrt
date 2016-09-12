@@ -23,15 +23,25 @@
 .Nm
 is a convenience wrapper for
 .Bd -literal -offset "xxx"
-. Nm repose Cm issue-rm Ar HOST Ns ... Li -- $(<slug)
+. Nm smrt Cm repose Cm issue-rm Li $(<slug)
 . Nm smrt Cm prepare Fl \-force \-installed Ar HOST Ns ...
 .Ed
+.Pp
+This command requires a
+.Sy Testreport directory .
+.\" }}}
+.
+.\" OPERANDS {{{
+.Sh OPERANDS
+.Bl -tag -width "xxx"
+. It Ar HOST
+. No See Sx OPERANDS No in Xr smrt 1 .
+.El
 .\" }}}
 .
 .\" SEE ALSO {{{
 .Sh SEE ALSO
 .Xr repose-issue-rm 1 ,
-.Xr smrt-attach 1 ,
 .Xr smrt-hosts 1 ,
 .Xr smrt-prepare 1 ,
 .Xr smrt-update 1 ,

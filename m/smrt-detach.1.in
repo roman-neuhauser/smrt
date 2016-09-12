@@ -22,9 +22,10 @@
 .\" DESCRIPTION {{{
 .Sh DESCRIPTION
 .Nm
-closes the master ssh connection to given
-(or all attached)
-.Ar HOST Ns s.
+closes the master ssh connection to given (or all) attached hosts.
+.Pp
+This command requires a
+.Sy Testreport directory .
 .\" }}}
 .
 .\" OPTIONS {{{
@@ -44,9 +45,10 @@ processes.
 .\" }}}
 .
 .\" OPERANDS {{{
+.Sh OPERANDS
 .Bl -tag -width "xxx"
 . It Ar HOST
-Attached host to detach.
+. No See Sx OPERANDS No in Xr smrt 1 .
 .El
 .\" }}}
 .

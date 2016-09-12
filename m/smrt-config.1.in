@@ -75,6 +75,14 @@ Display active configuration.
 .El
 .\" }}}
 .
+.\" OPERANDS {{{
+.Sh OPERANDS
+.Bl -tag -width "xxx"
+.It Ar KEY , VAL
+. No See Sx Properties No in Xr smrt 5 .
+.El
+.\" }}}
+.
 .\" ENVIRONMENT {{{
 .Sh ENVIRONMENT
 .Bl -tag -width "xx"

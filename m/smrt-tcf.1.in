@@ -28,9 +28,12 @@
 .\" DESCRIPTION {{{
 .Sh DESCRIPTION
 .Nm
-is used to list and run CTCS2 testsuites, and submit their results
-into a
+lists and runs CTCS2 testsuites in given (or all) attached hosts,
+and submits their results into a
 .Nm QADB .
+.Pp
+This command requires a
+.Sy Testreport directory .
 .
 This is a
 .Sy Logged command ,
@@ -39,19 +42,17 @@ see
 .\" }}}
 .
 .\" OPERANDS {{{
+.Sh OPERANDS
 .Bl -tag -width "xxx"
 .It Ar HOST
-. Oo Ar user Ns Li @ Oc Ns Ar hostname
-. Pp
-If called with no
-. Ar HOST
-operands, uses all currently attached hosts.
+. No See Sx OPERANDS No in Xr smrt 1 .
 .It Ar SUITE
 A
 . Nm CTCS2
 testsuite name, with or without the
-.Qq Li -run
+. Qq Li -run
 suffix.
+.El
 .\" }}}
 .
 .\" SMRT {{{

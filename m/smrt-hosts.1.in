@@ -23,7 +23,20 @@
 .\" DESCRIPTION {{{
 .Sh DESCRIPTION
 .Nm
-is used to display information about currently attached hosts.
+is used to display information about given (or all) attached hosts.
+.Pp
+This command requires a
+.Sy Testreport directory .
+.\" }}}
+.
+.\" OPERANDS {{{
+.Sh OPERANDS
+.Bl -tag -width "xxx"
+. It Ar HOST
+. No See Sx OPERANDS No in Xr smrt 1 .
+. It Ar PACKAGE
+Package to report on.
+.El
 .\" }}}
 .
 .\" SEE ALSO {{{

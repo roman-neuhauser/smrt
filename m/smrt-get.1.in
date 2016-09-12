@@ -21,7 +21,10 @@
 .\" DESCRIPTION {{{
 .Sh DESCRIPTION
 .Nm
-is used to download files and directories from attached hosts.
+is used to download files and directories from given (or all) attached hosts.
+.Pp
+This command requires a
+.Sy Testreport directory .
 .\" }}}
 .
 .\" OPTIONS {{{
@@ -35,9 +38,10 @@ Display this manual page.
 .\" }}}
 .
 .\" OPERANDS {{{
+.Sh OPERANDS
 .Bl -tag -width "xxx"
 . It Ar HOST
-Machine to download from.
+. No See Sx OPERANDS No in Xr smrt 1 .
 . It Ar SOURCE
 Pathname to download.
 Recurses into directories.

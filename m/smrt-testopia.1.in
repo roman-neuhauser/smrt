@@ -29,6 +29,20 @@
 .Sh DESCRIPTION
 .Nm
 is used to query and manipulate Testopia testcases.
+.Pp
+This command requires a
+.Sy Testreport directory .
+.\" }}}
+.
+.\" OPERANDS {{{
+.Sh OPERANDS
+.Bl -tag -width "xxx"
+.It Ar PACKAGE
+Package name.
+.It Ar TCID
+. Nm Testopia
+testcase ID.
+.El
 .\" }}}
 .
 .\" SMRT {{{

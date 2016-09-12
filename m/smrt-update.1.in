@@ -21,14 +21,23 @@
 .\" DESCRIPTION {{{
 .Sh DESCRIPTION
 .Nm
-installs all relevant packages in given
-(or all attached)
-.Ar HOST Ns s.
+installs all relevant packages in given (or all) attached hosts.
+.Pp
+This command requires a
+.Sy Testreport directory .
 .
 This is a
 .Sy Logged command ,
 see
 .Xr smrt 1 .
+.\" }}}
+.
+.\" OPERANDS {{{
+.Sh OPERANDS
+.Bl -tag -width "xxx"
+. It Ar HOST
+. No See Sx OPERANDS No in Xr smrt 1 .
+.El
 .\" }}}
 .
 .\" SEE ALSO {{{

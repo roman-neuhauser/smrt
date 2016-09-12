@@ -25,8 +25,11 @@
 .\" DESCRIPTION {{{
 .Sh DESCRIPTION
 .Nm
-is used to display information about bugs attached to
-a maintenance update.
+is used to display information about bugs
+purportedly fixed in the current maintenance update.
+.Pp
+This command requires a
+.Sy Testreport directory .
 .\" }}}
 .
 .\" SUBCOMMANDS {{{
@@ -35,19 +38,27 @@ a maintenance update.
 .Bl -tag -width "xxx"
 .
 .It Nm Cm browse Op Ar BUG Ns ...
-Open all or given
+Open given (or all)
 . Ar BUG Ns s
 using
 . Xr xdg-open 1 .
 .
 .It Nm Oo Cm list Oc Op Ar BUG Ns ...
-Display URLs and summaries of all or given
+Display URLs and summaries of given (or all)
 . Ar BUG Ns s
 .
 .It Nm Cm urls Op Ar BUG Ns ...
-Display URLs of all or given
+Display URLs of given (or all)
 . Ar BUG Ns s
 .
+.El
+.\" }}}
+.
+.\" OPERANDS {{{
+.Sh OPERANDS
+.Bl -tag -width "xxx"
+.It Ar BUG
+Bugzilla ticket number.
 .El
 .\" }}}
 .

@@ -22,6 +22,9 @@
 is used to create a legacy testreport template
 from maintenance update metadata retrieved using
 .Xr smrt-fetch 1 .
+.Pp
+This command requires a
+.Sy Testreport directory .
 .\" }}}
 .
 .\" SEE ALSO {{{

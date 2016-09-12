@@ -68,6 +68,11 @@ Retrieve the maintenance request diff.
 .El
 .\" }}}
 .
+.\" OPERANDS {{{
+.Sh OPERANDS
+.No See Sx OPERANDS No in Xr smrt 1 .
+.\" }}}
+.
 .\" SEE ALSO {{{
 .Sh SEE ALSO
 .Xr curl 1 ,

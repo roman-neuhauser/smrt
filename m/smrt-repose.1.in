@@ -17,7 +17,7 @@
 .Nm
 . Ar COMMAND
 . Op Ar HOST Ns ... Li --
-. No ...
+. Op Ar ARG Ns ...
 .\" SYNOPSIS }}}
 .
 .\" DESCRIPTION {{{
@@ -25,30 +25,59 @@
 .Nm
 is a convenience used to run a given
 .Xr repose 1
-command with given or all attached hosts
+command with given (or all) attached hosts
 plus any other arguments.
 .Pp
 Note that argument handling in
 .Nm
 differs from that of
 .Xr repose 1 :
+.Bl -bullet
+. It
+.Nm Ar COMMAND Oo Ar HOST Ns ... Li -- Oc No Oo Ar ARG Ns ... Oc
+. It
+.Nm repose Ar COMMAND Ar HOST Ns ... Oo Li -- Ar ARG Ns ... Oc
+.El
+.Pp
+This means that while
+.Ar foo , bar , baz No are hostnames in
 .Bd -literal -offset "xx"
-. Nm smrt Cm repose Cm CMD Ar THING Ns ...
+. Nm repose Cm CMD Ar foo bar baz
 .Ed
 .Pp
-is treated as
+they mean something else in
 .Bd -literal -offset "xx"
-. Nm repose Cm CMD Ar ALLHOSTS Li -- Ar THING Ns ...
+. Nm Cm CMD Ar foo bar baz
+.Ed
+.Pp
+.Nm No supplies Nm repose No with all attached hosts ,
+and the above becomes
+.Bd -literal -offset "xx"
+. Nm repose Cm CMD Ar HOST Ns ... Li -- Ar foo bar baz
 .Ed
 .Pp
 To treat
-.Ar THING
-as a
-.Ar HOST ,
-use
+.Ar foo , bar , baz No as Ar HOST Ns s,
+add
+.Qq Li --
+as the last argument:
 .Bd -literal -offset "xx"
-. Nm smrt Cm repose Cm CMD Ar THING Ns ... Li -- Ns
+. Nm Cm CMD Ar ARG foo bar baz Li -- Ns
 .Ed
+.Pp
+This command requires a
+.Sy Testreport directory .
+.\" }}}
+.
+.\" OPERANDS {{{
+.Sh OPERANDS
+.Bl -tag -width "xxx"
+. It Ar COMMAND
+. Nm repose No subcommand.
+. No See Sx COMMANDS No in Xr repose 1 .
+. It Ar HOST
+. No See Sx OPERANDS No in Xr smrt 1 .
+.El
 .\" }}}
 .
 .\" SEE ALSO {{{

@@ -25,7 +25,10 @@
 .\" DESCRIPTION {{{
 .Sh DESCRIPTION
 .Nm
-opens new terminals to all or given attached hosts.
+opens new terminals to given (or all) attached hosts.
+.Pp
+This command requires a
+.Sy Testreport directory .
 .\" }}}
 .
 .\" MODIFIERS {{{
@@ -43,6 +46,14 @@ Use
 . It Cm xterm
 Use
 .Xr xterm 1 .
+.El
+.\" }}}
+.
+.\" OPERANDS {{{
+.Sh OPERANDS
+.Bl -tag -width "xxx"
+.It Ar HOST
+. No See Sx OPERANDS No in Xr smrt 1 .
 .El
 .\" }}}
 .

@@ -27,10 +27,9 @@ opens a master ssh connection to each given
 .Ar HOST
 and earmarks it for testing given
 .Ar PRODUCT Ns s.
-.Bl -tag -width "xxx"
-. It Ar HOST
-.  Oo Ar user Ns Li @ Oc Ns Ar hostname
-.El
+.Pp
+This command requires a
+.Sy Testreport directory .
 .\" }}}
 .
 .\" OPERANDS {{{

@@ -46,15 +46,14 @@ on results of successful metadata acquisition.
 .Sh OPERANDS
 .Bl -tag -width "xxx"
 .It Ar MPRJ
-. Sy Maintenance Project ,
-. Ar ISSUER Ns Li :Maintenance: Ns Ar ISSUE Ns .
+. No See Sx OPERANDS No in Xr smrt 1 .
 . Ar ISSUER
 is queried for the outstanding maintenance request targetting
 . Ar ISSUE
 to derive
 . Ar SLUG Ns .
 .It Ar MRID
-. Sy Maintenance Request ID Ns .
+. No See Sx OPERANDS No in Xr smrt 1 .
 . Sy Assumed Issuer
 is queried for the
 . Sy Maintenance Project
@@ -63,7 +62,7 @@ targetted by
 to derive
 . Ar SLUG Ns .
 .It Ar SLUG
-. Ar MPRJ Ns Li : Ns Ar MRID Ns .
+. No See Sx OPERANDS No in Xr smrt 1 .
 Verify in
 . Ar ISSUER
 that

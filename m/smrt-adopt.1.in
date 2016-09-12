@@ -28,8 +28,20 @@ is a convenience wrapper over
 .Fl \-push .
 .\" }}}
 .
+.\" OPERANDS {{{
+.Sh OPERANDS
+.Bl -tag -width "xxx"
+.It Ar MPRJ , MRID , SLUG
+. No See Sx OPERANDS No in Xr smrt 1 .
+.It Ar DEST
+Destination directory.
+Defaults to
+. Ar SLUG .
+.\" }}}
+.
 .\" SEE ALSO {{{
 .Sh SEE ALSO
+.Xr smrt-checkout 1 ,
 .Xr smrt-fetch 1 ,
 .Xr smrt-push 1 .
 .\" }}}

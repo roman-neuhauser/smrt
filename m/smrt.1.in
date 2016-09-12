@@ -113,17 +113,28 @@ query or manipulate currently attached hosts.
 .Bl -tag -width "xxx"
 .It Ar HOST
 . Oo Ar user Ns Li @ Oc Ns Ar hostname Ns Op Li : Ns Ar port
-.El
-.Pp
+. Pp
 . Sy Attached commands
 accept any
-.Em substrings
+. Em substrings
 of currently attached hosts.
 Usually it's enough to give
-.Qq Li \&.
+. Qq Li \&.
 or
-.Qq Li @
+. Qq Li @
 to use all attached hosts.
+.
+.It Ar MPRJ
+. Sy Maintenance Project ,
+. Ar ISSUER Ns Li :Maintenance: Ns Ar ISSUE Ns .
+.
+.It Ar MRID
+. Sy Maintenance Request ID Ns .
+.
+.It Ar SLUG
+. Ar ISSUER Ns Li :Maintenance: Ns Ar ISSUE Ns Li : Ns Ar MRID Ns .
+.
+.El
 .\" }}}
 .
 .\" TRACING {{{
