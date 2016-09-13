@@ -24,8 +24,12 @@
 .\" DESCRIPTION {{{
 .Sh DESCRIPTION
 .Nm
-downloads and stores metadata for a maintenance update
-from a BuildService instance API.
+collects metadata for a
+.Sy Maintenance Update
+from a
+.Sy Build Service No API
+and other sources, transforms it into formats suitable for use
+on the command line, and persists both sets in files.
 .\" }}}
 .
 .\" OPTIONS {{{

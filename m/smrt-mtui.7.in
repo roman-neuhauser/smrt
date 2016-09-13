@@ -41,44 +41,96 @@ in
 .\" COMMANDS {{{
 .Sh COMMANDS
 .
-.Bl -tag -width "xxx"
+.Bl -tag -width "xx"
 .\" mtui -r ISSUER:Maintenance:ISSUE:MRID {{{
 .It Nm mtui Fl r Ar ISSUER Ns Li :Maintenance: Ns Ar ISSUE Ns Li : Ns Ar MRID
-. Bd -literal
-.  Nm smrt Cm checkout Ar ISSUER Ns Li :Maintenance: Ns Ar ISSUE Ns Li : Ns Ar MRID
-.  Nm smrt Cm fetch Ar ISSUER Ns Li :Maintenance: Ns Ar ISSUE Ns Li : Ns Ar MRID
-. Ed
+.
+This does several things:
 . Pp
-. Nm smrt Cm fetch
-acquires data for a
-. Sy Maintenance Request
-from a BuildService instance and other sources,
-transforms this data into formats which are better
-suited for use on the command line, and persists
-both in files on disk.
+.\" mtui steps {{{
+. Bl -enum
+. It
+.  No Download metadata for
+.  Ar ISSUER Ns Li :Maintenance: Ns Ar ISSUE Ns Li : Ns Ar MRID
+.  No from Bro Dv svn.path Brc No into
+.  Bro mtui.template_dir Brc Ns Li / Ns Ar ISSUER Ns Li :Maintenance: Ns Ar ISSUE Ns Li : Ns Ar MRID
+.  No unless already present.
+. It
+.  No Select hosts to test the update in unless
+.  Bro mtui.template_dir Brc Ns Li / Ns Ar ISSUER Ns Li :Maintenance: Ns Ar ISSUE Ns Li : Ns Ar MRID Ns Li /log
+.  No already contains results from some hosts, in which case those hosts will be used.
+. It
+.  No Connect to selected hosts using ssh.
+. It
+.  No Start an interactive Dq shell .
+. El
+.\" }}}
 . Pp
+. Nm mtui
+relies on other software to collect and process its inputs into expected formats
+and store it in
+. Brq svn.path .
+. No Until and unless this Qo other software Qc does that,
+. Nm mtui No cannot be used to test the update.
+.
+. Nm smrt No is capable of collecting Sy Maintenance Update
+. No metadata from a Sy Build Service No API on its own.
+.
+The three functions listed above are separate in
+. Nm smrt :
+. Pp
+.\" smrt steps {{{
+. Bl -enum
+. It
+.  No Acquire metadata.
 Use
-. Nm smrt Cm fetch Fl \-push
+.  Nm smrt Cm checkout
+if you want to work with results previously persisted using
+.  Nm smrt Cm push No or Nm svn Cm commit .
+In all other cases, use
+.  Nm smrt Cm fetch .
+. \" {{{
+.  Bl -tag -width "xx"
+.  It 1.a. Nm smrt Cm fetch Ar ISSUER Ns Li :Maintenance: Ns Ar ISSUE Ns Li : Ns Ar MRID
+.   Pp
+Acquire data for a
+.   Sy Maintenance Request
+from a BuildService instance and other sources,
+transform this data into formats which are better
+suited for use on the command line, and persist
+both in files on disk.
+.   Pp
+Use
+.   Nm smrt Cm fetch Fl \-push
 to upload the created files into a
-. Qq Dv testreport_repository
-. Pq Qo Dv svn_path Qc No in Nm MTUI
+.   Qq Dv testreport_repository
+.   Pq Qo Dv svn.path Qc No in Nm MTUI
 immediately, or
-. Nm smrt Cm push
+.   Nm smrt Cm push
 at any later time.
-. Pp
-. Nm smrt Cm checkout
-retrieves data
-for a
-. Sy Maintenance Request
-previously created by
-. Nm smrt Cm fetch
-and uploaded by
-. Nm smrt Cm push
-or
-. Nm svn Cm commit
-into a
-. Qq Dv testreport_repository
-. Pq Qo Dv svn_path Qc No in Nm MTUI .
+.  It 1.b. Nm smrt Cm checkout Ar ISSUER Ns Li :Maintenance: Ns Ar ISSUE Ns Li : Ns Ar MRID
+.   Pp
+Retrieve
+.   Sy Maintenance Request
+metadata previously persisted using
+.   Nm smrt Cm push No or Nm svn Cm commit
+in the configured
+.   Qq Dv testreport_repository
+.   Pq Qo Dv svn.path Qc No in Nm MTUI .
+.  El
+. \" }}}
+. It
+Select hosts.
+. No See Xr refdb 1 .
+. It
+Coonect hosts.
+. No See Xr smrt-attach 1 .
+. It
+There's no need to start a shell: you already
+. Em are
+in one.
+. El
+.\" }}}
 . Pp
 . Nm smrt
 has nothing like the
