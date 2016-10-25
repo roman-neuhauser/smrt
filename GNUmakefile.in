@@ -121,7 +121,7 @@ $(htmlfiles): %.html: %.rst
 
 .PHONY: check
 check: $(tests) | all
-	env -i PATH="$$PATH" TESTROOT=$(testroot) BUILDDIR="$$PWD" ZSH="$(ZSH)" $(CRAM) --shell=zsh $(CRAMFLAGS) $^
+	env -i PATH="$$PATH" TESTROOT=$(testroot) BUILDDIR="$$PWD" ZSH="$(ZSH)" $(CRAM) --shell=zsh --shell-opts=-f $(CRAMFLAGS) $^
 
 
 .PHONY: clean
