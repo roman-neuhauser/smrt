@@ -94,8 +94,10 @@ if test "$prefix" = /usr/local && test $mandir_set = 0; then
 fi
 
 findtool HAVEOPT_SH haveopt.sh
+findtool PARALLEL parallel
 findtool SVN svn
 findtool SVNADMIN svnadmin
+findtool XMLSTARLET xml
 findtool ZSH zsh
 
 populate $rootdir/GNUmakefile.in GNUmakefile
