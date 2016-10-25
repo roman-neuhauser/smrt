@@ -123,13 +123,13 @@ function impl # {{{
     curl -Sfs $config_metadata_url/productdefs.pm
 
   o redir -1 productdefs \
-    perl $preludedir/smrt.tps.pl productdefs.pm
+    perl $preludedir/smrt.tps.pl ./productdefs.pm
 
   o redir -1 testplatforms.pm \
     curl -Sfs $config_metadata_url/testplatforms.pm
 
   o redir -1 testplatforms \
-    perl $preludedir/smrt.tps.pl testplatforms.pm
+    perl $preludedir/smrt.tps.pl ./testplatforms.pm
 
   o redir -1 request.xml \
     bs-fetch-request $mrid

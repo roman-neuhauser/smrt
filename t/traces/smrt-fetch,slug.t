@@ -35,10 +35,10 @@ full slug::
   o curl -Sfs *://* (glob)
   o redir -1 productdefs.pm curl -Sfs *://*/productdefs.pm (glob)
   o curl -Sfs *://* (glob)
-  o redir -1 productdefs perl */smrt.tps.pl productdefs.pm (glob)
+  o redir -1 productdefs perl */smrt.tps.pl ./productdefs.pm (glob)
   o redir -1 testplatforms.pm curl -Sfs file://*/t/fixtures/testplatforms.pm (glob)
   o curl -Sfs *://* (glob)
-  o redir -1 testplatforms perl */smrt.tps.pl testplatforms.pm (glob)
+  o redir -1 testplatforms perl */smrt.tps.pl ./testplatforms.pm (glob)
   o redir -1 request.xml bs-fetch-request 87808
   o bsc /request/87808
   o curl -Sfns https://api.example.com/request/87808
